@@ -2,7 +2,7 @@
 .main-header {
     background-color: white;
     width: 100%;
-    height: $header-height;
+    height: $header-mobile-height;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,7 +83,7 @@ img {
 @media screen and (min-width: 881px) {
     .main-header {
         
-        height: 64px;
+        height: $header-height;
         flex-wrap: wrap;
         
     }
