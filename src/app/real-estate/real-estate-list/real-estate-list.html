@@ -1,1 +1,9 @@
-<p>real-estate-list works!</p>
+<ul class="ad-list">
+    @for (ad of adList(); track ad.id) {
+        <li>
+            <a class="ad-link" href="">
+                <app-real-estate-list-item [ad]="ad"></app-real-estate-list-item>
+            </a>
+        </li>
+    }
+</ul>

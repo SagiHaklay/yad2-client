@@ -3,7 +3,12 @@ export interface RealEstateAd {
     street: string,
     houseNum: number,
     city: string,
-    price: number,
-    isFavorite: boolean,
-    imageUrl: string
+    price?: number,
+    isFavorite?: boolean,
+    imageUrls: string[],
+    roomCount?: number,
+    floor?: number,
+    area?: number,
+    propertyType: string,
+    neighborhood?: string
 }
