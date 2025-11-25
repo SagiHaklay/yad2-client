@@ -1,0 +1,12 @@
+@use '../assets/styles/abstracts/variables' as *;
+.main-section {
+    position: relative;
+    top: $header-mobile-height;
+    min-height: calc(100vh - $header-mobile-height);
+}
+@media screen and (min-width: 881px) {
+    .main-section {
+        top: $header-height;
+        min-height: calc(100vh - $header-height);
+    }
+}

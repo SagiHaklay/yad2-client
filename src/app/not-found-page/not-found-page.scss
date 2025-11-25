@@ -1,0 +1,44 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    align-items: center;
+    
+    height: 100%;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    img {
+        width: 100%;
+    }
+    .title {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    .subtitle {
+        font-size: 1.25rem;
+    }
+    .home-btn {
+        border-radius: 4px;
+        width: 186px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: 500;
+        border-color: #ff7100;
+        background-color: #ff7100;
+        font-size: 0.875rem;
+        padding: 0.8rem 1rem;
+        cursor: pointer;
+        margin-top: 50px;
+    }
+}
+.status-code {
+    text-align: center;
+    color: #999;
+}

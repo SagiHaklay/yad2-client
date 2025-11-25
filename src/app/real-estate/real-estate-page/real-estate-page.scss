@@ -1,13 +1,13 @@
-@use '../../../assets/styles/abstracts/variables' as *;
-:host {
-    // margin-top: $header-mobile-height;
-    position: relative;
-    top: $header-mobile-height;
-}
+// @use '../../../assets/styles/abstracts/variables' as *;
+// :host {
+//     // margin-top: $header-mobile-height;
+//     position: relative;
+//     top: $header-mobile-height;
+// }
 
-@media screen and (min-width: 881px) {
-    :host {
-        // margin-top: $header-height;
-        top: $header-height;
-    }
-}
+// @media screen and (min-width: 881px) {
+//     :host {
+//         // margin-top: $header-height;
+//         top: $header-height;
+//     }
+// }
