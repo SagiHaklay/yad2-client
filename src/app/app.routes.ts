@@ -3,6 +3,7 @@ import { RealEstatePage } from './real-estate/real-estate-page/real-estate-page'
 import { realEstateListResolver } from './real-estate/real-estate-list-resolver';
 import { NotFoundPage } from './not-found-page/not-found-page';
 import { RealEstateAdDetail } from './real-estate/real-estate-ad-detail/real-estate-ad-detail';
+import { realEstateAdResolver } from './real-estate/real-estate-ad-resolver';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/realestate', pathMatch: 'full' },
@@ -15,7 +16,10 @@ export const routes: Routes = [
     },
     {
         path: 'realestate/:id',
-        component: RealEstateAdDetail
+        component: RealEstateAdDetail,
+        resolve: {
+            ad: realEstateAdResolver
+        }
     },
     { path: '**', component: NotFoundPage }
 ];
