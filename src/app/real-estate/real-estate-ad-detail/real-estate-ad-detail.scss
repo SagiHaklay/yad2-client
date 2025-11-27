@@ -1,0 +1,37 @@
+.mobile-image-container {
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 0.5rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+.contact-info {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 2rem;
+    .price {
+        display: none;
+    }
+}
+@media screen and (min-width: 881px) {
+    .detail-container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+    }
+    .property-info {
+        .price {
+            display: none;
+        }
+    }
+    .contact-info {
+        flex-direction: column;
+        position: relative;
+        .price {
+            display: block;
+        }
+    }
+}

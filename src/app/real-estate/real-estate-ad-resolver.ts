@@ -1,5 +1,5 @@
 import { RedirectCommand, ResolveFn, Router } from '@angular/router';
-import { RealEstateFullAd } from './real-estate-full-ad';
+import { RealEstateFullAd } from './types/real-estate-full-ad';
 import { inject } from '@angular/core';
 import { RealEstateAdService } from './real-estate-ad-service';
 import { of } from 'rxjs';

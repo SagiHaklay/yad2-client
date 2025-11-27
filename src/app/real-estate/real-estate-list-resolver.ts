@@ -1,5 +1,5 @@
 import { ResolveFn } from '@angular/router';
-import { RealEstateAd } from './real-estate-ad';
+import { RealEstateAd } from './types/real-estate-ad';
 import { inject } from '@angular/core';
 import { RealEstateAdService } from './real-estate-ad-service';
 

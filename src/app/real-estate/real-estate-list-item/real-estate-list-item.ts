@@ -1,5 +1,5 @@
 import { Component, computed, input, linkedSignal, signal } from '@angular/core';
-import { RealEstateAd } from '../real-estate-ad';
+import { RealEstateAd } from '../types/real-estate-ad';
 import { environment } from '../../../environments/environment';
 import { CurrencyPipe } from '@angular/common';
 

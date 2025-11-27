@@ -1,1 +1,27 @@
-<p>{{ad().street}} {{ad().houseNum}}</p>
+<div class="mobile-image-container">
+    <img [src]="imageUrls()[0]" alt=""/>
+</div>
+<div class="detail-container">
+    <div class="property-info">
+        <h1 class="price">
+            @if (ad().price) {
+                {{ad().price | currency:'ILS'}}
+            } @else {
+                מחיר לא צויין
+            }
+        </h1>
+        <p>{{ad().street}} {{ad().houseNum}}</p>
+        <div>{{locationDetail()}}</div>
+    </div>
+    <div class="contact-info">
+        <h1 class="price">
+            @if (ad().price) {
+                {{ad().price | currency:'ILS'}}
+            } @else {
+                מחיר לא צויין
+            }
+        </h1>
+        <button class="phone-btn" type="button">הצגת מספר טלפון</button>
+        <button class="message-btn" type="button">שליחת הודעה</button>
+    </div>
+</div>

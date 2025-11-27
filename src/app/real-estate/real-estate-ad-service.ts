@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { RealEstateAd } from './real-estate-ad';
-import { RealEstateFullAd } from './real-estate-full-ad';
+import { RealEstateAd } from './types/real-estate-ad';
+import { RealEstateFullAd } from './types/real-estate-full-ad';
 
 @Injectable({
   providedIn: 'root',
