@@ -11,5 +11,5 @@ export const realEstateAdResolver: ResolveFn<RealEstateFullAd> = (route, state) 
   if (adId === null) {
     return of(new RedirectCommand(router.parseUrl('/error')));
   }
-  return adService.getAdById(adId);
+  return adService.getAdById(Number(adId));
 };
