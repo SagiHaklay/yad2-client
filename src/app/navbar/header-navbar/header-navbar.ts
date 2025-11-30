@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header-navbar',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './header-navbar.scss',
 })
 export class HeaderNavbar {
-
+  profileLinkText = signal('התחברות');
+  userAlias = signal('');
 }
