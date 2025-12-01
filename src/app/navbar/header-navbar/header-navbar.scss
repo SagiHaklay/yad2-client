@@ -32,6 +32,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 0.3rem;
         color: black;
         min-width: 3rem;
         padding: 0.5rem;
@@ -73,19 +74,24 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     background-color: rgb(238, 238, 238);
     border: 1px solid rgb(204, 204, 204);
 }
-
+.profile-link-logged-in {
+    border: 1px solid $safety-orange;
+    background-color: $linen;
+    color: $safety-orange;
+}
 @media screen and (min-width: 881px) {
     .main-header {
-        
+        box-shadow: none;
         height: $header-height;
         flex-wrap: wrap;
-        
+        border-bottom: 1px solid gainsboro;
+        opacity: .96;
     }
     .header-item .header-link {
         height: 50px;
@@ -102,5 +108,7 @@ img {
 }
 
 @media screen and (max-width: 1450px) {
-    
+    .link-text {
+        display: none;
+    }
 }
