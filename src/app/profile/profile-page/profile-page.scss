@@ -1,0 +1,13 @@
+.hide-for-mobile {
+    display: none;
+}
+
+@media screen and (min-width: 881px) {
+    :host {
+        display: grid;
+        grid-template-columns: 15rem auto;
+    }
+    .hide-for-mobile {
+        display: block;
+    }
+}

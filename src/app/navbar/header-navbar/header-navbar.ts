@@ -1,10 +1,11 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { UserProfileService } from '../../profile/user-profile-service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ProfileIcon } from "../../profile/profile-icon/profile-icon";
 
 @Component({
   selector: 'app-header-navbar',
-  imports: [],
+  imports: [ProfileIcon],
   templateUrl: './header-navbar.html',
   styleUrl: './header-navbar.scss',
 })

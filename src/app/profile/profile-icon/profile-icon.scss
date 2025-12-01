@@ -1,0 +1,20 @@
+@use '../../../assets/styles/abstracts/variables' as *;
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(204, 204, 204);
+}
+.logged-in {
+    border: 1px solid $safety-orange;
+    background-color: $linen;
+    color: $safety-orange;
+}
+.icon {
+    width: 1.6rem;
+    color: black;
+}

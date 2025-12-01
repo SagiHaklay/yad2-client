@@ -9,8 +9,8 @@ export const currentUserProfileResolver: ResolveFn<UserProfile> = (route, state)
   const authService = inject(AuthService);
   const profileService = inject(UserProfileService);
   const router = inject(Router);
-  if (authService.currentUserId() === null) {
-    return of(new RedirectCommand(router.parseUrl('/error')));
-  }
+  // if (authService.currentUserId() === null) {
+  //   return of(new RedirectCommand(router.parseUrl('/error')));
+  // }
   return profileService.getProfileById(authService.currentUserId() as number);
 };

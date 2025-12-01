@@ -1,0 +1,7 @@
+@use './variables' as *;
+@mixin screen-height-without-header {
+    min-height: calc(100vh - $header-mobile-height);
+    @media screen and (min-width: $desktop-width) {
+        min-height: calc(100vh - $header-height);
+    }
+}
