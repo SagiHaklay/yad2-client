@@ -25,6 +25,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    position: relative;
     a {
         text-decoration: none;
     }
@@ -62,6 +63,19 @@
     }
     .publish-link:hover {
         background-color: rgba($safety-orange, 0.1);
+    }
+    .item-count {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $safety-orange;
+        color: white;
+        padding: 2px 4px;
+        min-width: 14px;
     }
 }
 img {

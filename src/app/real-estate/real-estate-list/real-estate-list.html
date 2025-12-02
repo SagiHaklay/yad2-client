@@ -1,9 +1,10 @@
 <ul class="ad-list">
     @for (ad of adList(); track ad.id) {
         <li>
-            <a class="ad-link" [routerLink]="[ad.id]">
+            <!-- <a class="ad-link" [routerLink]="[ad.id]">
                 <app-real-estate-list-item [ad]="ad"></app-real-estate-list-item>
-            </a>
+            </a> -->
+            <app-real-estate-list-item [ad]="ad"></app-real-estate-list-item>
         </li>
     }
 </ul>

@@ -7,6 +7,9 @@ import { realEstateAdResolver } from './real-estate/real-estate-ad-resolver';
 import { ProfilePage } from './profile/profile-page/profile-page';
 import { currentUserProfileResolver } from './profile/current-user-profile-resolver';
 import { EditProfileForm } from './profile/edit-profile-form/edit-profile-form';
+import { UserAds } from './profile/user-ads/user-ads';
+import { SavedAds } from './profile/favorites/saved-ads/saved-ads';
+import { favoritesResolver } from './profile/favorites/favorites-resolver';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/realestate', pathMatch: 'full' },
@@ -31,7 +34,16 @@ export const routes: Routes = [
             profile: currentUserProfileResolver
         },
         children: [
-            { path: 'edit', component: EditProfileForm }
+            { path: '', redirectTo: '/profile/my-ads', pathMatch: 'full' },
+            { path: 'my-ads', component: UserAds },
+            { path: 'edit', component: EditProfileForm },
+            { 
+                path: 'my-favorites', 
+                component: SavedAds,
+                resolve: {
+                    favorites: favoritesResolver
+                } 
+            }
         ]
     },
     { path: '**', component: NotFoundPage }

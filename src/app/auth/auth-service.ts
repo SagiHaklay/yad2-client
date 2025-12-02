@@ -5,8 +5,8 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private _token = signal<string | null>(null);
-  private _userId = signal<number | null>(null);
+  private _token = signal<string | null>('token');
+  private _userId = signal<number | null>(1);
   currentToken = this._token.asReadonly();
   currentUserId = this._userId.asReadonly();
   constructor() {

@@ -1,0 +1,8 @@
+<h1>מודעות שאהבתי</h1>
+<ul class="ad-list">
+    @for (item of favorites(); track $index) {
+        <li>
+            <app-real-estate-list-item [ad]="item" (favoriteRemoved)="removeItemFromFavorites($index)"></app-real-estate-list-item>
+        </li>
+    }
+</ul>

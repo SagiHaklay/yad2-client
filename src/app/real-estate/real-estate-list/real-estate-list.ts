@@ -6,7 +6,7 @@ import { RealEstateListItem } from '../real-estate-list-item/real-estate-list-it
 
 @Component({
   selector: 'app-real-estate-list',
-  imports: [RealEstateListItem, RouterLink],
+  imports: [RealEstateListItem],
   templateUrl: './real-estate-list.html',
   styleUrl: './real-estate-list.scss',
 })
