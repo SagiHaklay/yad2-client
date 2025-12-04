@@ -1,12 +1,12 @@
 import { effect, Injectable, signal } from '@angular/core';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _token = signal<string | null>('token');
-  private _userId = signal<number | null>(1);
+  private _token = signal<string | null>(null);
+  private _userId = signal<number | null>(null);
   currentToken = this._token.asReadonly();
   currentUserId = this._userId.asReadonly();
   constructor() {
@@ -35,6 +35,7 @@ export class AuthService {
       this._userId.set(Number(loadedUser));
   }
   login(email: string, password: string) {
+    // return throwError(() => new Error('login failed'));
     this._token.set('token');
     this._userId.set(1);
     return of({

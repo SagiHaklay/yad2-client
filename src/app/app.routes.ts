@@ -10,6 +10,11 @@ import { EditProfileForm } from './profile/edit-profile-form/edit-profile-form';
 import { UserAds } from './profile/user-ads/user-ads';
 import { SavedAds } from './profile/favorites/saved-ads/saved-ads';
 import { favoritesResolver } from './profile/favorites/favorites-resolver';
+import { LoginForm } from './auth/login-form/login-form';
+import { authenticatedGuard } from './auth/authenticated-guard';
+import { AuthPage } from './auth/auth-page/auth-page';
+import { RegisterForm } from './auth/register-form/register-form';
+import { loggedOffGuard } from './auth/logged-off-guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/realestate', pathMatch: 'full' },
@@ -33,6 +38,7 @@ export const routes: Routes = [
         resolve: {
             profile: currentUserProfileResolver
         },
+        canActivate: [authenticatedGuard],
         children: [
             { path: '', redirectTo: '/profile/my-ads', pathMatch: 'full' },
             { path: 'my-ads', component: UserAds },
@@ -44,6 +50,16 @@ export const routes: Routes = [
                     favorites: favoritesResolver
                 } 
             }
+        ]
+    },
+    {
+        path: 'auth',
+        component: AuthPage,
+        canActivate: [loggedOffGuard],
+        children: [
+            { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+            { path: 'login', component: LoginForm },
+            { path: 'register', component: RegisterForm }
         ]
     },
     { path: '**', component: NotFoundPage }

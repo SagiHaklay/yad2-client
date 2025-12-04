@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <legend class="title">היי, טוב לראות אותך</legend>
+    <div class="form-field-container">
+        <div class="form-field">
+            <label for="email">מייל</label>
+            <input type="email" id="email" placeholder="yourmail.email.co.il" formControlName="email" />
+            <div class="form-error-msg">
+                @if (email?.hasError('required')) {
+                    <div>לא לשכוח את המייל</div>
+                }
+                @if (email?.hasError('email')) {
+                    <div>משהו לא תקין במייל, אולי התפספס @?</div>
+                }
+            </div>
+            
+        </div>
+        <div class="form-field">
+            <label for="password">סיסמה</label>
+            <input type="password" id="password" placeholder="הקלדת סיסמה" formControlName="password" />
+            <div class="form-error-msg">לא לשכוח להזין סיסמה</div>
+            
+        </div>
+    </div>
+    @if (authFailed()) {
+        <div class="form-error-msg">אימייל או סיסמה אינם תקינים</div>
+    }
+    
+    <button class="form-submit-btn" type="submit">התחברות</button>
+    <p class="register-link">
+        אין לך חשבון?
+        <a [routerLink]="['../register']">להרשמה</a>
+    </p>
+</form>

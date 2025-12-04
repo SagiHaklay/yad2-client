@@ -1,0 +1,32 @@
+@use '../../../assets/styles/abstracts/variables' as *;
+@use '../../../assets/styles/abstracts/mixins' as *;
+:host {
+    @include screen-height-without-header;
+    width: 100%;
+    background-color: snow;
+    padding: 1rem;
+}
+.form-container {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    height: 100%;
+    
+}
+@media screen and (min-width: $desktop-width) {
+    :host {
+        display: grid;
+        grid-template-columns: 500px auto;
+        grid-template-rows: 6rem auto;
+        grid-template-areas: 
+            'logo .'
+            'form banner';
+        
+    }
+    .form-container {
+        grid-area: form;
+        border-radius: 4px;
+        box-shadow: 0 3px 10px 0 rgba($color: #000, $alpha: 0.1);
+        
+    }
+}
