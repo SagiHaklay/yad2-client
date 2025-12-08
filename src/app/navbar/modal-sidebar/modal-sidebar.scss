@@ -1,0 +1,31 @@
+@use '../../../assets/styles/abstracts/variables' as *;
+.sidebar-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 150;
+    background-color: rgba($color: black, $alpha: .4);
+    .sidebar {
+        width: $sidebar-width;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+        right: -$sidebar-width;
+        background-color: white;
+    }
+}
+.sidebar-container.open {
+    display: block;
+    .sidebar {
+        right: 0;
+        transition: right .15s ease-out;
+    }
+}
+@media screen and (min-width: $desktop-width) {
+    .sidebar-container.open {
+        display: none;
+    }
+}

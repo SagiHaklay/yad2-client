@@ -15,6 +15,8 @@ import { authenticatedGuard } from './auth/authenticated-guard';
 import { AuthPage } from './auth/auth-page/auth-page';
 import { RegisterForm } from './auth/register-form/register-form';
 import { loggedOffGuard } from './auth/logged-off-guard';
+import { PublishRealEstateAdPage } from './real-estate/publish-real-estate-ad-page/publish-real-estate-ad-page';
+import { NavbarType } from './navbar/navbar-type';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/realestate', pathMatch: 'full' },
@@ -23,6 +25,9 @@ export const routes: Routes = [
         component: RealEstatePage, 
         resolve: {
             ads: realEstateListResolver
+        },
+        data: {
+            navbarType: NavbarType.Default
         }
     },
     {
@@ -30,6 +35,9 @@ export const routes: Routes = [
         component: RealEstateAdDetail,
         resolve: {
             ad: realEstateAdResolver
+        },
+        data: {
+            navbarType: NavbarType.Default
         }
     },
     {
@@ -39,6 +47,9 @@ export const routes: Routes = [
             profile: currentUserProfileResolver
         },
         canActivate: [authenticatedGuard],
+        data: {
+            navbarType: NavbarType.Profile
+        },
         children: [
             { path: '', redirectTo: '/profile/my-ads', pathMatch: 'full' },
             { path: 'my-ads', component: UserAds },
@@ -61,6 +72,14 @@ export const routes: Routes = [
             { path: 'login', component: LoginForm },
             { path: 'register', component: RegisterForm }
         ]
+    },
+    {
+        path: 'publish',
+        component: PublishRealEstateAdPage,
+        canActivate: [authenticatedGuard],
+        data: {
+            navbarType: NavbarType.Publish
+        }
     },
     { path: '**', component: NotFoundPage }
 ];

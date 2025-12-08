@@ -1,0 +1,6 @@
+<div class="sidebar-container" [class.open]="isOpen()" (click)="closeSidebar()">
+    <aside class="sidebar" (click)="$event.preventDefault()">
+        <button type="button" (click)="closeSidebar()">x</button>
+        
+    </aside>
+</div>

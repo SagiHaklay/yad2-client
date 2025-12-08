@@ -1,13 +1,19 @@
+@use '../../../assets/styles/abstracts/variables' as *;
 .hide-for-mobile {
     display: none;
 }
 
-@media screen and (min-width: 881px) {
+@media screen and (min-width: $desktop-width) {
     :host {
         display: grid;
         grid-template-columns: 15rem auto;
     }
     .hide-for-mobile {
         display: block;
+    }
+    .sidebar {
+        position: fixed;
+        top: $header-height;
+        min-height: calc(100vh - $header-height);
     }
 }

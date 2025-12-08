@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, output, signal } from '@angular/core';
 import { UserProfileService } from '../../profile/user-profile-service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProfileIcon } from "../../profile/profile-icon/profile-icon";
@@ -25,4 +25,8 @@ export class HeaderNavbar {
     return `${this.currentUser()?.firstName.at(0)}${this.currentUser()?.lastName.at(0)}`;
   });
   favoriteCount = this.favoriteService.favoriteCount;
+  sidebarOpened = output();
+  openSidebar() {
+    this.sidebarOpened.emit();
+  }
 }
