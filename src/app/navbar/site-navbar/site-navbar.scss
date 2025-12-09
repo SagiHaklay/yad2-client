@@ -1,0 +1,86 @@
+@use '../../../assets/styles/abstracts/variables' as *;
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+.user-section {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding-top: 0.5rem;
+    
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .logout-link {
+        background-color: transparent;
+        border: none;
+        align-self: flex-end;
+        color: #999;
+    }
+    .profile-info {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    .profile-col-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 0.3rem;
+    }
+    .username {
+        font-weight: 700;
+    }
+    .profile-link {
+        color: #999;
+    }
+    .login-link {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: #999;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+}
+.publish-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transform: translateY(50%);
+    .publish-link {
+        display: flex;
+        background-color: white;
+        color: $safety-orange;
+        border: 1px solid $safety-orange;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        border-radius: 30px;
+        font-weight: 500;
+        padding: 0.5rem;
+        text-decoration: none;
+    }
+    
+}
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0.3rem 0 0;
+    a {
+        text-decoration: none;
+        color: #363636;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    a:hover {
+        background-color: #f8f8f8;
+    }
+}

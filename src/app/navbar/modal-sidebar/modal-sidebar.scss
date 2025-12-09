@@ -1,27 +1,62 @@
 @use '../../../assets/styles/abstracts/variables' as *;
 .sidebar-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 150;
-    background-color: rgba($color: black, $alpha: .4);
+    
+    .sidebar-background {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 150;
+        background-color: rgba($color: black, $alpha: .4);
+    }
     .sidebar {
         width: $sidebar-width;
         height: 100vh;
         top: 0;
         bottom: 0;
-        right: -$sidebar-width;
+        right: 0;
+        transform: translateX($sidebar-width);
         background-color: white;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        transition: transform .15s ease-out;
+        z-index: 150;
     }
 }
 .sidebar-container.open {
-    display: block;
+    .sidebar-background {
+        display: block;
+    }
     .sidebar {
-        right: 0;
-        transition: right .15s ease-out;
+        transform: translateX(0);
+        
+    }
+}
+.close-btn {
+    background-color: transparent;
+    border: none;
+    color: #363636;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    .close-icon {
+        fill: #363636;
+        width: 1.25rem;
+        height: 1.25rem
+    }
+}
+.close-btn.profile-close-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: unset;
+    color: white;
+    .close-icon {
+        fill: white;
     }
 }
 @media screen and (min-width: $desktop-width) {

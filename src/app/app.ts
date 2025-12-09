@@ -7,15 +7,15 @@ import { NavbarContainer } from './navbar/navbar-container/navbar-container';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarContainer],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('yad2-client');
-  private route = inject(ActivatedRoute);
-  private data = toSignal(this.route.data, {
-    initialValue: {navbarType: NavbarType.None}
-  });
-  showHeader = computed(() => this.data().navbarType != undefined && this.data().navbarType !== NavbarType.None);
+  // private route = inject(ActivatedRoute);
+  // private data = toSignal(this.route.data, {
+  //   initialValue: {navbarType: NavbarType.None}
+  // });
+  // showHeader = computed(() => this.data().navbarType != undefined && this.data().navbarType !== NavbarType.None);
 }

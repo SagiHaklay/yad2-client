@@ -17,29 +17,44 @@ import { RegisterForm } from './auth/register-form/register-form';
 import { loggedOffGuard } from './auth/logged-off-guard';
 import { PublishRealEstateAdPage } from './real-estate/publish-real-estate-ad-page/publish-real-estate-ad-page';
 import { NavbarType } from './navbar/navbar-type';
+import { RealEstateAdsPage } from './real-estate/real-estate-ads-page/real-estate-ads-page';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/realestate', pathMatch: 'full' },
     { 
         path: 'realestate', 
         component: RealEstatePage, 
-        resolve: {
-            ads: realEstateListResolver
-        },
         data: {
             navbarType: NavbarType.Default
-        }
-    },
-    {
-        path: 'realestate/:id',
-        component: RealEstateAdDetail,
-        resolve: {
-            ad: realEstateAdResolver
         },
-        data: {
-            navbarType: NavbarType.Default
-        }
+        children: [
+            {
+                path: '',
+                component: RealEstateAdsPage,
+                pathMatch: 'full',
+                resolve: {
+                    ads: realEstateListResolver
+                }
+            },
+            {
+                path: ':id',
+                component: RealEstateAdDetail,
+                resolve: {
+                    ad: realEstateAdResolver
+                }
+            }
+        ]
     },
+    // {
+    //     path: 'realestate/:id',
+    //     component: RealEstateAdDetail,
+    //     resolve: {
+    //         ad: realEstateAdResolver
+    //     },
+    //     data: {
+    //         navbarType: NavbarType.Default
+    //     }
+    // },
     {
         path: 'profile',
         component: ProfilePage,

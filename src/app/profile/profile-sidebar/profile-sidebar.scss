@@ -13,6 +13,31 @@
     flex-direction: column;
     gap: 0.3rem;
     padding: 0.75rem 0.5rem;
+    .fullname {
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+}
+.publish-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .publish-link {
+        display: flex;
+        background-color: #10ad6f;
+        color: white;
+        border: 1px solid #10ad6f;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        border-radius: 30px;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        width: 80%;
+    }
+    
 }
 .nav-links {
     display: flex;
@@ -33,7 +58,18 @@
         background-color: #23242c;
     }
 }
-
+.logout-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    button {
+        background-color: transparent;
+        border: none;
+        color: #ccc;
+        cursor: pointer;
+    }
+}
 @media screen and (min-width: $desktop-width) {
     .profile-sidebar {
         min-height: calc(100vh - $header-height);

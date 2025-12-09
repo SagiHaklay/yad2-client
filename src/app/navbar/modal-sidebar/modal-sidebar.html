@@ -1,6 +1,16 @@
-<div class="sidebar-container" [class.open]="isOpen()" (click)="closeSidebar()">
-    <aside class="sidebar" (click)="$event.preventDefault()">
-        <button type="button" (click)="closeSidebar()">x</button>
-        
+<div class="sidebar-container" [class.open]="isOpen()">
+    <div class="sidebar-background" (click)="closeSidebar()"></div>
+    <aside class="sidebar">
+        <button [class]="{'close-btn': true, 'profile-close-btn': isProfile()}" type="button" (click)="closeSidebar()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="close-icon">
+                <path d="M16.3 8.05a.458.458 0 01.65.65l-3.802 3.8 3.801 3.8a.458.458 0 01.059.577l-.059.072a.458.458 0 01-.648 0L12.5 13.148l-3.8 3.801a.458.458 0 01-.577.059l-.072-.059a.458.458 0 010-.648l3.8-3.801-3.8-3.8a.458.458 0 01-.059-.577l.059-.072a.458.458 0 01.648 0l3.8 3.8z" fill="currentColor" fill-rule="nonzero"></path>
+            </svg>
+        </button>
+        @if (isProfile()) {
+            <app-profile-sidebar></app-profile-sidebar>
+        }
+        @else {
+            <app-site-navbar></app-site-navbar>
+        }
     </aside>
 </div>

@@ -1,4 +1,4 @@
-// @use '../../../assets/styles/abstracts/variables' as *;
+@use '../../../assets/styles/abstracts/variables' as vars;
 // :host {
 //     // margin-top: $header-mobile-height;
 //     position: relative;
@@ -11,3 +11,13 @@
 //         top: $header-height;
 //     }
 // }
+@use '../../../assets/styles/abstracts/mixins' as mix;
+.page-content {
+    @include mix.under-header(vars.$header-mobile-height);
+}
+@media screen and (min-width: vars.$desktop-width) {
+    .page-content {
+        @include mix.under-header(vars.$header-height);
+
+    }
+}

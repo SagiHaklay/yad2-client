@@ -1,8 +1,16 @@
 <nav class="profile-sidebar">
     <div class="user-info">
         <app-profile-icon [profile]="profile()"></app-profile-icon>
-        <div>{{profile().firstName}} {{profile().lastName}}</div>
+        <div class="fullname">{{profile().firstName}} {{profile().lastName}}</div>
         <div>{{profile().email}}</div>
+    </div>
+    <div class="publish-container">    
+        <a class="publish-link" [routerLink]="['/publish']">
+            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.75a.75.75 0 01.743.648l.007.102v5.75h5.75a.75.75 0 01.102 1.493l-.102.007h-5.75v5.75a.75.75 0 01-1.493.102l-.007-.102v-5.75H5.5a.75.75 0 01-.102-1.493l.102-.007h5.75V5.5a.75.75 0 01.75-.75z" fill="currentColor"></path>
+            </svg>
+            <span>פרסום מודעה חדשה</span>
+        </a>
     </div>
     <ul class="nav-links">
         <li class="nav-link-item">
@@ -42,5 +50,8 @@
             </a>
         </li>
     </ul>
-    <button type="button" (click)="logout()">התנתקות</button>
+    <div class="logout-link">
+        <button type="button" (click)="logout()">התנתקות</button>
+    </div>
+    
 </nav>

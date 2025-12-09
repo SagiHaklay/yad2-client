@@ -1,12 +1,16 @@
 @use '../../../assets/styles/abstracts/variables' as *;
+@use '../../../assets/styles/abstracts/mixins' as mix;
 .hide-for-mobile {
     display: none;
 }
-
+.page-content {
+    @include mix.under-header($header-mobile-height);
+}
 @media screen and (min-width: $desktop-width) {
-    :host {
-        display: grid;
-        grid-template-columns: 15rem auto;
+    .page-content {
+        // display: grid;
+        // grid-template-columns: 15rem auto;
+        @include mix.under-header($header-height);
     }
     .hide-for-mobile {
         display: block;
@@ -15,5 +19,6 @@
         position: fixed;
         top: $header-height;
         min-height: calc(100vh - $header-height);
+        width: $sidebar-width;
     }
 }

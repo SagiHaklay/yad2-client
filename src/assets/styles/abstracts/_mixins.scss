@@ -1,7 +1,11 @@
-@use './variables' as *;
+@use './variables' as vars;
 @mixin screen-height-without-header {
-    min-height: calc(100vh - $header-mobile-height);
-    @media screen and (min-width: $desktop-width) {
-        min-height: calc(100vh - $header-height);
+    min-height: calc(100vh - vars.$header-mobile-height);
+    @media screen and (min-width: vars.$desktop-width) {
+        min-height: calc(100vh - vars.$header-height);
     }
+}
+@mixin under-header($header-height) {
+    position: relative;
+    top: $header-height;
 }
