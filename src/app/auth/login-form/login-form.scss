@@ -3,12 +3,13 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding-top: 2rem;
 }
 .form-field-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     width: 100%;
 }
 .form-error-msg {
@@ -17,9 +18,13 @@ form {
 .form-field {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    gap: 0.3rem;
     input {
         border: 1px solid #ccc;
         border-radius: 4px;
+        height: 2.5rem;
+        padding: 0 0.5rem;
     }
     .form-error-msg {
         display: none;
@@ -42,6 +47,7 @@ form {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0.5rem;
 }
 a {
     text-decoration: none;
@@ -51,4 +57,8 @@ a {
     display: flex;
     justify-content: center;
     gap: 0.3rem;
+}
+.title {
+    text-align: center;
+    font-size: 1.5rem;
 }

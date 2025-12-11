@@ -1,32 +1,80 @@
 @use '../../../assets/styles/abstracts/variables' as *;
 @use '../../../assets/styles/abstracts/mixins' as *;
 :host {
-    @include screen-height-without-header;
     width: 100%;
-    background-color: snow;
-    padding: 1rem;
+    background-color: $snow;
+    min-height: 100vh;
+    color: $jet;
+    display: block;
 }
+
 .form-container {
-    width: 100%;
     background-color: white;
+    width: 100%;
+    height: 100vh;
     padding: 1rem;
-    height: 100%;
-    
+    box-sizing: border-box;
+}
+.logo-container {
+    display: none;
+}
+.banner {
+    display: none;
 }
 @media screen and (min-width: $desktop-width) {
-    :host {
+    .page-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 5rem);
+    }
+    .grid-container {
         display: grid;
-        grid-template-columns: 500px auto;
-        grid-template-rows: 6rem auto;
-        grid-template-areas: 
-            'logo .'
-            'form banner';
-        
+        grid-template-columns: 510px auto;
+        grid-template-areas: 'form banner';
+        min-height: 500px;
     }
     .form-container {
-        grid-area: form;
         border-radius: 4px;
         box-shadow: 0 3px 10px 0 rgba($color: #000, $alpha: 0.1);
+        grid-area: form;
+        height: 100%;
+    }
+    .banner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-area: banner;
+        gap: 0.5rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .logo-container {
+        display: block;
+        grid-area: logo;
+        padding: 1rem 2rem;
+        width: 100%;
+        height: 5rem;
+        box-sizing: border-box;
+        img {
+            width: 4rem;
+            height: 100%;
+        }
+    }
+    .tools {
+        display: flex;
         
+        gap: 2rem;
+        align-items: center;
+        .tool-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
