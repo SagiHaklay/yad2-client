@@ -8,9 +8,13 @@
 }
 @media screen and (min-width: $desktop-width) {
     .page-content {
-        // display: grid;
-        // grid-template-columns: 15rem auto;
+        display: grid;
+        grid-template-columns: $sidebar-width auto;
+        grid-template-areas: 'sidebar content';
         @include mix.under-header($header-height);
+    }
+    .profile-content {
+        grid-area: content;
     }
     .hide-for-mobile {
         display: block;

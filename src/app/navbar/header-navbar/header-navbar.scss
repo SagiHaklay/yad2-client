@@ -99,6 +99,9 @@ img {
     background-color: $linen;
     color: $safety-orange;
 }
+.drop-list {
+    display: none;
+}
 @media screen and (min-width: 881px) {
     .main-header {
         box-shadow: none;
@@ -118,6 +121,54 @@ img {
     }
     .mobile-only {
         display: none;
+    }
+    .drop-list-container {
+        position: relative;
+    }
+    .drop-list-container:hover .drop-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: $header-height;
+        background-color: white;
+        z-index: 100;
+        box-shadow: $shadow-level-3;
+        
+        min-width: 10rem;
+        // transform: translateX(50%);
+        .drop-list-links {
+            border-bottom: 1px solid $isabelline;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            li {
+                width: 100%;
+            }
+        }
+        .drop-list-item {
+            width: 100%;
+            padding: 0;
+        }
+    }
+    .no-favorites {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        text-align: center;
+        .title {
+            font-size: 1.1rem;
+        }
+    }
+    .profile-header {
+        padding: 0 20px;
+        border-top: 5px solid $safety-orange;
     }
 }
 
