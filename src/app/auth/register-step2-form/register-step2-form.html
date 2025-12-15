@@ -1,0 +1,37 @@
+<form [formGroup]="registerForm" (ngSubmit)="finishRegister()">
+    <legend class="title">
+        היי, נעים להכיר
+    </legend>
+    <div class="form-field-container">
+        <div class="form-field">
+            <label for="firstName">שם פרטי*</label>
+            <input id="firstName" type="text" placeholder="הקלדת שם פרטי" />
+            <div class="form-error-msg"></div>
+        </div>
+        <div class="form-field">
+            <label for="lastName">שם משפחה*</label>
+            <input id="lastName" type="text" placeholder="הקלדת שם משפחה" />
+            <div class="form-error-msg"></div>
+        </div>
+        <div class="form-field">
+            <label for="phone">מספר טלפון*</label>
+            <input type="tel" id="phone" placeholder="מספר נייד" />
+            <div class="form-error-msg"></div>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" />
+            <p>
+                קראתי ואישרתי את 
+                <a href="">תקנון</a>
+                 האתר*
+            </p>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" />
+            <p>
+                אני מאשר/ת קבלת תוכן שיווקי מיד2 ו/או מצדדים שלישיים באמצעי הקשר שמסרתי (גם בשירותי דיוור ישיר)
+            </p>
+        </div>
+    </div>
+    <button class="form-submit-btn" type="submit">סיום הרשמה</button>
+</form>

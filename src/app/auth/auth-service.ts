@@ -1,5 +1,8 @@
 import { effect, Injectable, signal } from '@angular/core';
-import { of, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { LoginInfo } from './types/login-info';
+import { RegisterModel } from './types/register-model';
+import { LoginResponse } from './types/login-response';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +10,10 @@ import { of, throwError } from 'rxjs';
 export class AuthService {
   private _token = signal<string | null>(null);
   private _userId = signal<number | null>(null);
+  private _loginInfoCache = signal<LoginInfo| null>(null);
   currentToken = this._token.asReadonly();
   currentUserId = this._userId.asReadonly();
+  loginInfoCache =  this._loginInfoCache.asReadonly();
   constructor() {
     effect(() => {
       if (this._token() !== null) {
@@ -24,6 +29,13 @@ export class AuthService {
         localStorage.removeItem('userId');
       }
     });
+    effect(() => {
+      if (this._loginInfoCache() !== null) {
+        localStorage.setItem('loginInfo', JSON.stringify(this._loginInfoCache()));
+      } else {
+        localStorage.removeItem('loginInfo');
+      }
+    });
     this.loadFromLocalStorage();
   }
   private loadFromLocalStorage() {
@@ -33,8 +45,11 @@ export class AuthService {
     const loadedUser = localStorage.getItem('userId');
     if (loadedUser !== null)
       this._userId.set(Number(loadedUser));
+    const loginInfo = localStorage.getItem('loginInfo');
+    if (loginInfo !== null)
+      this._loginInfoCache.set(JSON.parse(loginInfo));
   }
-  login(email: string, password: string) {
+  login(email: string, password: string): Observable<LoginResponse> {
     // return throwError(() => new Error('login failed'));
     this._token.set('token');
     this._userId.set(1);
@@ -46,5 +61,12 @@ export class AuthService {
   logout() {
     this._token.set(null);
     this._userId.set(null);
+  }
+  saveLoginInfo(email: string, password: string) {
+    this._loginInfoCache.set({email, password});
+  }
+  register(data: RegisterModel) {
+
+    this._loginInfoCache.set(null);
   }
 }

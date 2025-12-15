@@ -18,6 +18,7 @@ import { loggedOffGuard } from './auth/logged-off-guard';
 import { PublishRealEstateAdPage } from './real-estate/publish-real-estate-ad-page/publish-real-estate-ad-page';
 import { NavbarType } from './navbar/navbar-type';
 import { RealEstateAdsPage } from './real-estate/real-estate-ads-page/real-estate-ads-page';
+import { RegisterStep2Form } from './auth/register-step2-form/register-step2-form';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/realestate', pathMatch: 'full' },
@@ -85,7 +86,9 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
             { path: 'login', component: LoginForm },
-            { path: 'register', component: RegisterForm }
+            { path: 'register', redirectTo: '/auth/register/step1', pathMatch: 'full' },
+            { path: 'register/step1', component: RegisterForm },
+            { path: 'register/step2', component: RegisterStep2Form }
         ]
     },
     {

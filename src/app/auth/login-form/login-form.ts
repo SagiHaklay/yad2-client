@@ -25,9 +25,7 @@ export class LoginForm {
   get password() {
     return this.loginForm.get('password');
   }
-  passwordValidator(control: AbstractControl): ValidationErrors | null {
-    return null;
-  }
+  
   login() {
     this.submitAttempted.set(true);
     if (this.loginForm.valid) {
