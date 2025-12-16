@@ -20,6 +20,26 @@ form {
     flex-direction: column;
     width: 100%;
     gap: 0.3rem;
+    .password-field {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        input {
+            padding-left: 35px;
+            
+        }
+        button {
+            position: absolute;
+            left: 10px;
+            top: 25%;
+            width: 25px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.5;
+            z-index: 2;
+        }
+    }
     input {
         border: 1px solid #ccc;
         border-radius: 4px;

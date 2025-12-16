@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth-service';
@@ -22,6 +22,8 @@ export class RegisterForm {
       validators: [this.passwordConfirmedValidator]
     })
   });
+  hidePasswords = signal(true);
+  passwordInputType = computed(() => this.hidePasswords()? 'password' : 'text');
   get email() {
     return this.registerForm.get('email');
   }
@@ -68,5 +70,8 @@ export class RegisterForm {
     } else {
       this.registerForm.markAsPristine();
     }
+  }
+  toggleHidePasswords() {
+    this.hidePasswords.update((isHide) => !isHide);
   }
 }
