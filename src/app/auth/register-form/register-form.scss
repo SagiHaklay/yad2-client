@@ -49,6 +49,7 @@ form {
     align-items: center;
     width: 100%;
     padding: 0.5rem;
+    cursor: pointer;
 }
 a {
     text-decoration: none;
@@ -102,4 +103,18 @@ a {
 }
 .forgot-password {
     align-self: flex-end;
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+@media screen and (min-width: $desktop-width) {
+    .image-container {
+        display: none;
+    }
 }

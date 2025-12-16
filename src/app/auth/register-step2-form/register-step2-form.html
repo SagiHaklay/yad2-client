@@ -1,37 +1,63 @@
 <form [formGroup]="registerForm" (ngSubmit)="finishRegister()">
+    <div class="image-container">
+        <img src="https://assets.yad2.co.il/login/icon_signup.svg" alt="">
+    </div>
     <legend class="title">
         היי, נעים להכיר
     </legend>
     <div class="form-field-container">
         <div class="form-field">
             <label for="firstName">שם פרטי*</label>
-            <input id="firstName" type="text" placeholder="הקלדת שם פרטי" />
-            <div class="form-error-msg"></div>
+            <input id="firstName" type="text" placeholder="הקלדת שם פרטי" formControlName="firstName" />
+            <div class="form-error-msg">
+                @if (firstName?.hasError('required')) {
+                    נבקש למלא את השם
+                } @else if (firstName?.hasError('minlength')) {
+                    שם עם אות אחת? זה שיא גינס
+                }
+            </div>
         </div>
         <div class="form-field">
             <label for="lastName">שם משפחה*</label>
-            <input id="lastName" type="text" placeholder="הקלדת שם משפחה" />
-            <div class="form-error-msg"></div>
+            <input id="lastName" type="text" placeholder="הקלדת שם משפחה" formControlName="lastName" />
+            <div class="form-error-msg">
+                @if (firstName?.hasError('required')) {
+                    נבקש למלא את שם המשפחה
+                } @else if (firstName?.hasError('minlength')) {
+                    שם משפחה עם אות אחת? זה שיא גינס
+                }
+            </div>
         </div>
         <div class="form-field">
             <label for="phone">מספר טלפון*</label>
-            <input type="tel" id="phone" placeholder="מספר נייד" />
-            <div class="form-error-msg"></div>
+            <input type="tel" id="phone" placeholder="מספר נייד" formControlName="phone" />
+            <div class="form-error-msg">
+                @if (phone?.hasError('required')) {
+                    היי, לא לשכוח למלא מספר טלפון
+                } @else if (phone?.hasError('pattern')) {
+                    נבקש את מספר הנייד שלך
+                }
+            </div>
         </div>
+        <div class="checkbox-container" [class.error]="readTerms?.invalid">
+            <input type="checkbox" formControlName="terms" />
+            <div class="form-error-msg">
+                היי, לא לשכוח לאשר את התקנון
+            </div>
+            <div class="checkbox-text">
+                    קראתי ואישרתי את 
+                    <a href="">תקנון</a>
+                    האתר*
+            </div>
+        </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" />
-            <p>
-                קראתי ואישרתי את 
-                <a href="">תקנון</a>
-                 האתר*
-            </p>
+                <input type="checkbox" formControlName="allowAds" />
+                <div class="checkbox-text">
+                    אני מאשר/ת קבלת תוכן שיווקי מיד2 ו/או מצדדים שלישיים באמצעי הקשר שמסרתי (גם בשירותי דיוור ישיר)
+                </div>
         </div>
-        <div class="checkbox-container">
-            <input type="checkbox" />
-            <p>
-                אני מאשר/ת קבלת תוכן שיווקי מיד2 ו/או מצדדים שלישיים באמצעי הקשר שמסרתי (גם בשירותי דיוור ישיר)
-            </p>
-        </div>
+        
     </div>
     <button class="form-submit-btn" type="submit">סיום הרשמה</button>
 </form>
