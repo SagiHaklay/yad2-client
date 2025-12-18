@@ -71,22 +71,41 @@ a {
     grid-template-areas: 'checkbox text';
     width: 100%;
     column-gap: 0.3rem;
-    input[type="checkbox"] {
+    position: relative;
+    input[type=checkbox] {
         grid-area: checkbox;
         border-radius: 2px;
         width: 1rem;
         height: 1rem;
         border: 1px solid $jet;
-        
+        appearance: none;
         display: block;
+        cursor: pointer;
     }
     input[type="checkbox"]:focus {
         border-color: $safety-orange;
         outline: none;
     }
-    
+    input[type=checkbox]:checked {
+        border-color: $safety-orange;
+        background-color: $safety-orange;
+    }
     .checkbox-text {
         grid-area: text;
+    }
+    .checkbox-icon {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.3rem;
+        color: white;
+        opacity: 0;
+        width: 0.75rem;
+        height: 0.75rem;
+        cursor: pointer;
+        pointer-events: none;
+    }
+    input[type=checkbox]:checked ~ .checkbox-icon {
+        opacity: 1;
     }
 }
 .ng-submitted .checkbox-container.error {

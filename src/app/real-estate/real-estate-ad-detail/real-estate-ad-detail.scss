@@ -1,10 +1,39 @@
-.mobile-image-container {
+@use '../../../assets/styles/abstracts/variables' as *;
+.image-container {
     max-width: 100%;
     border-radius: 10px;
     padding: 0.5rem;
-
+    box-sizing: border-box;
+    position: relative;
     img {
         width: 100%;
+        max-height: 100%;
+    }
+    .over-image-buttons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: transparent;
+        button {
+            background-color: white;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid #999;
+            height: 36px;
+            min-width: 36px;
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+        }
+        span {
+            display: none;
+        }
     }
 }
 
@@ -12,26 +41,194 @@
     display: flex;
     position: fixed;
     bottom: 0;
-    height: 2rem;
+    min-height: 2rem;
+    width: 100vw;
+    justify-content: center;
+    padding: 0.3rem;
+    gap: 0.5rem;
     .price {
         display: none;
     }
+    > button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 46vw;
+            padding: 0 18px;
+            min-height: 36px;
+            gap: 0.3rem;
+            svg {
+                display: none;
+            }
+        }
+        .phone-btn {
+            background-color: $caribbeanGreen;
+            color: white;
+            border: none;
+        }
+        .message-btn {
+            background-color: white;
+            border-color: $caribbeanGreen;
+            color: $caribbeanGreen;
+        }
+}
+.property-panel-container {
+    display: flex;
+    padding: 34px 0;
+}
+.property-panel {
+    display: flex;
+    padding: 18px 24px;
+    border-radius: 12px;
+    border: 1px solid $isabelline;
+    align-items: center;
+    gap: 24px;
+    .property-item {
+        display: flex;
+        gap: 0.3rem;
+        font-size: 1.125rem;
+    }
+}
+.description {
+    padding-bottom: 30px;
+}
+.section {
+    padding: 40px 0;
+    border-top: 1px solid $isabelline;
+    border-bottom: 1p solid $isabelline;
+}
+.other-detail-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 1rem;
+        .title-item {
+            color: #999;
+        }
+}
+
+.in-property-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #ccc;
+    row-gap: 1rem;
+    .in-property-item {
+        display: flex;
+        gap: 0.3rem;
+        align-items: center;
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+    .included {
+        color: $jet;
+    }
 }
 @media screen and (min-width: 881px) {
+    .image-container {
+        height: calc(100vh - $header-height);
+        width: 100vw;
+        .over-image-buttons {
+            span {
+                display: inline;
+            }
+            button {
+                border-radius: 30px;
+                padding: 8px 12px;
+            }
+        }
+    }
     .detail-container {
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 2fr 1fr;
     }
     .property-info {
         .price {
             display: none;
         }
+        .address {
+            font-weight: 500;
+            font-size: 1.75rem;
+        }
+        .location {
+            font-size: 1.125rem;
+        }
     }
     .contact-info {
         flex-direction: column;
-        position: relative;
+        position: sticky;
+        top: calc($header-height + 1rem);
+        left: 0.5rem;
+        bottom: unset;
+        max-height: 45vh;
+        gap: 30px;
+        border-radius: 12px;
+        border: 1px solid $isabelline;
+        box-shadow: 0 4px 12px 0 rgba($color: #000000, $alpha: .12);
+        padding: 30px;
+        width: 100%;
+        box-sizing: border-box;
+        
         .price {
             display: block;
         }
+        > button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            height: 48px;
+            width: 100%;
+            padding: 0 18px;
+            min-height: 36px;
+            gap: 0.3rem;
+            svg {
+                display: block;
+            }
+        }
+        .phone-btn {
+            background-color: $caribbeanGreen;
+            color: white;
+            border: none;
+        }
+        .contact-container {
+            display: none;
+        }
+        .message-btn {
+            background-color: white;
+            border-color: $caribbeanGreen;
+            color: $caribbeanGreen;
+        }
+    }
+    .contact-info.displayed {
+        .phone-btn {
+            display: none;
+        }
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            .close-btn {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+    .other-detail-list {
+        grid-template-columns: 1fr 2fr 1fr 2fr;
+    }
+    .in-property-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }

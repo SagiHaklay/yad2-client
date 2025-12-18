@@ -6,6 +6,7 @@ export interface RealEstateAd {
     price?: number,
     isFavorite?: boolean,
     imageUrls: string[],
+    mainImageUrl?: string,
     roomCount?: number,
     floor?: number,
     area?: number,

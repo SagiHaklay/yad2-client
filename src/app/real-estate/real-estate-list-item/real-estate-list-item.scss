@@ -1,5 +1,8 @@
 @use '../../../assets/styles/abstracts/variables' as *;
 :host {
+    position: relative;
+}
+.item-container {
     display: grid;
     grid-template-columns: 10rem auto 3rem 2rem;
     grid-template-rows: 1fr 2fr 1fr;
@@ -15,6 +18,8 @@
     background-color: white;
     border: 1px solid $isabelline;
     column-gap: 0.3rem;
+    text-decoration: none;
+    color: $jet;
 }
 .property-image {
     display: block;
@@ -26,8 +31,11 @@
 .like-toggle {
     border: none;
     background-color: transparent;
-    grid-area: like;
+    position: absolute;
+    top: 10px;
+    left: 0;
     cursor: pointer;
+    z-index: 100;
     .liked {
         fill-opacity: 1;
     }

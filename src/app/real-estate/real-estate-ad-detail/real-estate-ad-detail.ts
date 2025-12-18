@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { RealEstateFullAd } from '../types/real-estate-full-ad';
@@ -17,6 +17,7 @@ export class RealEstateAdDetail {
     initialValue: { ad: {}}
   });
   ad = computed(() => this.data()['ad'] as RealEstateFullAd);
+  mainImageUrl = computed(() => this.ad().mainImageUrl || environment.defaultImageUrl);
   imageUrls = computed(() => this.ad().imageUrls.length === 0? [environment.defaultImageUrl] : this.ad().imageUrls);
   locationDetail = computed(() => {
     let details = [this.ad().propertyType];
@@ -26,4 +27,12 @@ export class RealEstateAdDetail {
     details.push(this.ad().city);
     return details.join(', ');
   });
+  isContactInfoVisible = signal(false);
+
+  showContactInfo() {
+    this.isContactInfoVisible.set(true);
+  }
+  hideContactInfo() {
+    this.isContactInfoVisible.set(false);
+  }
 }

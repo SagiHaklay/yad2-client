@@ -16,7 +16,12 @@ export class RealEstateAdService {
   getAdById(id: number): Observable<RealEstateFullAd> {
     return of({
       id: 1, street: 'מצפה', city: 'שוהם', houseNum: 26, price: 2000, imageUrls: [], propertyType: 'דירה', roomCount: 3, floor: 4,
-      contactPhone: '0544989884'
+      contactPhone: '0544989884',
+      contactName: 'Sagi',
+      isRent: true,
+      propertyStatus: 'במצב שמור',
+      maxFloor: 6,
+      description: 'תיאור נכס'
     });
   }
 }

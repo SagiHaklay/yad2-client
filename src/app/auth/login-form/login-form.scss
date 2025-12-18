@@ -29,12 +29,30 @@ form {
     .form-error-msg {
         display: none;
     }
+    .password-field {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        input {
+            padding-left: 35px;
+        }
+        button {
+            position: absolute;
+            left: 10px;
+            top: 25%;
+            width: 25px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0.5;
+        }
+    }
 }
 .ng-submitted .form-field {
     input.ng-invalid.ng-pristine {
         border: 1px solid red;
     }
-    input.ng-invalid.ng-pristine + .form-error-msg {
+    input.ng-invalid.ng-pristine ~ .form-error-msg {
         display: block;
     }
 }

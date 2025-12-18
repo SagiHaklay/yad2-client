@@ -4,10 +4,11 @@ import { environment } from '../../../environments/environment';
 import { CurrencyPipe } from '@angular/common';
 import { AuthService } from '../../auth/auth-service';
 import { FavoriteService } from '../../profile/favorites/favorite-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-real-estate-list-item',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterLink],
   providers: [],
   templateUrl: './real-estate-list-item.html',
   styleUrl: './real-estate-list-item.scss',
