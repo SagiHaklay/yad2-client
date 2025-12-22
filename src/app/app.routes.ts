@@ -19,9 +19,10 @@ import { PublishRealEstateAdPage } from './real-estate/publish-real-estate-ad-pa
 import { NavbarType } from './navbar/navbar-type';
 import { RealEstateAdsPage } from './real-estate/real-estate-ads-page/real-estate-ads-page';
 import { RegisterStep2Form } from './auth/register-step2-form/register-step2-form';
+import { HomePage } from './home-page/home-page';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/realestate', pathMatch: 'full' },
+    { path: '', component: HomePage, pathMatch: 'full' },
     { 
         path: 'realestate', 
         component: RealEstatePage, 

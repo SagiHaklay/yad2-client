@@ -1,0 +1,208 @@
+<footer class="main-footer">
+    <nav class="site-links">
+        <div class="category" [class.hidden]="isRealEstateHidden()">
+            <div class="category-header" (click)="toggleRealEstate()">
+                <div class="category-title">נדל"ן</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="toggle-icon"><path fill="currentColor" d="M4.933 8.4c-.533-.533-1.333-.533-1.867 0s-.533 1.333 0 1.867L15.199 23.6c.533.533 1.467.533 2 0l11.867-13.2c.533-.533.4-1.467-.133-1.867C28.4 8 27.6 8 27.066 8.666L16.133 20.799l-11.2-12.4z"></path></svg>
+            </div>
+            
+            <ul class="category-links">
+                <li>
+                    <a href="">מכירה</a>
+                </li>
+                <li>
+                    <a href="">השכרה</a>
+                </li>
+                <li>
+                    <a href="">מסחרי</a>
+                </li>
+                <li>
+                    <a href="">כונס נכסים</a>
+                </li>
+                <li>
+                    <a href="">דירות חדשות</a>
+                </li>
+                <li>
+                    <a href="">Yzer - בונים החלטות חכמות</a>
+                </li>
+                <li>
+                    <a href="">Yadata - הערכת שווי נכס</a>
+                </li>
+            </ul>
+        </div>
+        <div class="category" [class.hidden]="isVehicleHidden()">
+            <div class="category-header" (click)="toggleVehicle()">
+                <div class="category-title">רכב</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="toggle-icon"><path fill="currentColor" d="M4.933 8.4c-.533-.533-1.333-.533-1.867 0s-.533 1.333 0 1.867L15.199 23.6c.533.533 1.467.533 2 0l11.867-13.2c.533-.533.4-1.467-.133-1.867C28.4 8 27.6 8 27.066 8.666L16.133 20.799l-11.2-12.4z"></path></svg>
+            </div>
+            
+            <ul class="category-links">
+                <li>
+                    <a href="">פרטיים ומסחריים</a>
+                </li>
+                <li>
+                    <a href="">משאיות</a>
+                </li>
+                <li>
+                    <a href="">אופנועים</a>
+                </li>
+                <li>
+                    <a href="">קטנועים</a>
+                </li>
+                <li>
+                    <a href="">כלי שייט</a>
+                </li>
+                <li>
+                    <a href="">מיוחדים</a>
+                </li>
+                <li>
+                    <a href="">אביזרים</a>
+                </li>
+                <li>
+                    <a href="">רכבים במכירה פומבית</a>
+                </li>
+                <li>
+                    <a href="">מחירון רכב</a>
+                </li>
+                <li>
+                    <a href="">מימון רכב</a>
+                </li>
+            </ul>
+        </div>
+        <div class="category" [class.hidden]="isSecondHandHidden()">
+            <div class="category-header" (click)="toggleSecondHand()">
+                <div class="category-title">יד שנייה</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="toggle-icon"><path fill="currentColor" d="M4.933 8.4c-.533-.533-1.333-.533-1.867 0s-.533 1.333 0 1.867L15.199 23.6c.533.533 1.467.533 2 0l11.867-13.2c.533-.533.4-1.467-.133-1.867C28.4 8 27.6 8 27.066 8.666L16.133 20.799l-11.2-12.4z"></path></svg>
+            </div>
+            
+            <ul class="category-links">
+                <li>
+                    <a href="">ריהוט</a>
+                </li>
+                <li>
+                    <a href="">אלקטרוניקה</a>
+                </li>
+                <li>
+                    <a href="">מכשירים סלולריים</a>
+                </li>
+                <li>
+                    <a href="">ספורט ופנאי</a>
+                </li>
+                <li>
+                    <a href="">ביגוד</a>
+                </li>
+                <li>
+                    <a href="">ילדים ותינוקות</a>
+                </li>
+                <li>
+                    <a href="">אספנות וינטאג</a>
+                </li>
+                <li>
+                    <a href="">בית ולייף סטייל</a>
+                </li>
+                <li>
+                    <a href="">גינון וחוץ</a>
+                </li>
+                <li>
+                    <a href="">משרד וריהוט</a>
+                </li>
+            </ul>
+        </div>
+        <div class="category" [class.hidden]="isJobSearchHidden()">
+            <div class="category-header" (click)="toggleJobSearch()">
+                <div class="category-title">דרושים</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="toggle-icon"><path fill="currentColor" d="M4.933 8.4c-.533-.533-1.333-.533-1.867 0s-.533 1.333 0 1.867L15.199 23.6c.533.533 1.467.533 2 0l11.867-13.2c.533-.533.4-1.467-.133-1.867C28.4 8 27.6 8 27.066 8.666L16.133 20.799l-11.2-12.4z"></path></svg>
+            </div>
+            
+            <ul class="category-links">
+                <li>
+                    <a href="">כל הקטגוריות</a>
+                </li>
+                <li>
+                    <a href="">חברות מובילות</a>
+                </li>
+                <li>
+                    <a href="">דרושים הייטק</a>
+                </li>
+                <li>
+                    <a href="">קורות חיים</a>
+                </li>
+                <li>
+                    <a href="">מגזין קריירה</a>
+                </li>
+                <li>
+                    <a href="">סוכן חכם</a>
+                </li>
+            </ul>
+        </div>
+        <div class="category" [class.hidden]="isMoreHidden()">
+            <div class="category-header" (click)="toggleMore()">
+                <div class="category-title">עוד באתר</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="toggle-icon"><path fill="currentColor" d="M4.933 8.4c-.533-.533-1.333-.533-1.867 0s-.533 1.333 0 1.867L15.199 23.6c.533.533 1.467.533 2 0l11.867-13.2c.533-.533.4-1.467-.133-1.867C28.4 8 27.6 8 27.066 8.666L16.133 20.799l-11.2-12.4z"></path></svg>
+            </div>
+            
+            <ul class="category-links">
+                <li>
+                    <a href="">חיות מחמד</a>
+                </li>
+                <li>
+                    <a href="">בעלי מקצוע</a>
+                </li>
+                <li>
+                    <a href="">מגזין יד2</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="app-link-container">
+        <a href="" class="app-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" class="social-buttons_icon___VKvP"><path d="M28.305 24.518a16.566 16.566 0 01-1.64 2.948c-.862 1.229-1.568 2.08-2.112 2.552-.843.776-1.747 1.173-2.714 1.195-.695 0-1.532-.198-2.507-.599-.978-.399-1.877-.597-2.699-.597-.862 0-1.787.198-2.776.597-.991.401-1.788.61-2.399.631-.928.04-1.853-.369-2.776-1.227-.589-.514-1.326-1.395-2.209-2.643-.947-1.333-1.726-2.878-2.336-4.64-.653-1.903-.981-3.746-.981-5.53 0-2.044.442-3.806 1.326-5.283.695-1.186 1.62-2.122 2.777-2.809s2.408-1.037 3.755-1.06c.737 0 1.703.228 2.904.676 1.198.45 1.966.677 2.304.677.252 0 1.106-.267 2.554-.798 1.369-.493 2.525-.697 3.472-.616 2.566.207 4.493 1.218 5.775 3.041-2.295 1.39-3.43 3.338-3.407 5.836.021 1.946.727 3.565 2.114 4.851a6.936 6.936 0 002.112 1.385c-.169.491-.348.962-.538 1.414zM22.421 1.363c0 1.525-.557 2.949-1.668 4.267-1.34 1.567-2.961 2.472-4.719 2.329a4.839 4.839 0 01-.035-.578c0-1.464.637-3.031 1.769-4.312.565-.649 1.284-1.188 2.155-1.618.87-.424 1.692-.658 2.466-.698.023.204.032.408.032.61z" fill="currentColor"></path></svg>
+        </a>
+        <a href="" class="app-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 30 32"><path fill="#ffd400" d="M22.093 20.929c3.789-2.081 6.687-3.666 6.935-3.789.793-.421 1.61-1.536 0-2.402-.52-.272-3.319-1.808-6.935-3.789l-4.978 5.003 4.978 4.978z"></path><path fill="#f33" d="M17.115 15.95L1.214 31.975c.372.05.793-.05 1.288-.322 1.04-.57 12.087-6.613 19.591-10.724l-4.978-4.978z"></path><path fill="#48ff48" d="M17.115 15.95l4.978-5.003S3.616.866 2.502.272C2.081.024 1.61-.05 1.189.024L17.115 15.95z"></path><path fill="#3bccff" d="M17.115 15.95L1.189.024C.545.173 0 .742 0 1.906v28.186c0 1.065.421 1.833 1.214 1.907l15.901-16.05z"></path></svg>
+        </a>
+        <a href="" class="app-link">
+            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-buttons_icon___VKvP"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.32 20.5H9.773v-8.501H8v-2.93h1.773V7.312c0-2.39 1-3.811 3.844-3.811h2.367v2.93h-1.48c-1.107 0-1.18.41-1.18 1.174L13.32 9.07H16l-.314 2.929H13.32V20.5z" fill="currentColor"></path></svg>
+        </a>
+        <a href="" class="app-link">
+            <svg width="1em" height="1em" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-buttons_icon___VKvP"><path clip-rule="evenodd" d="M16.294 8.843V3.031s0-2.801-2.782-2.801H2.93S.15.23.15 3.03v5.812s0 2.801 2.781 2.801h10.582s2.782 0 2.782-2.8zm-4.938-2.898L6.07 9.071V2.819l5.286 3.126z" fill="currentColor"></path></svg>
+        </a>
+    </div>
+    <p class="copyright">
+        כל הזכויות שמורות לחברת קורל תל מפעילת יד2 - מודעות: דרושים, דירות להשכרה, דירות למכירה, בתים להשכרה, העברת בתים, הובלות, לימודים, קניות, בעלי מקצוע, אצבע, תיירות ועוד. אין לעשות שימוש בכל התכנים המופיעים באתר יד2.
+    </p>
+    <hr class="footer-divider">
+    <ul class="other-links">
+        <li>
+            <a href="">תקנון</a>
+        </li>
+        <li>
+            <a href="">הצהרת נגישות</a>
+        </li>
+        <li>
+            <a href="">מדיניות פרטיות</a>
+        </li>
+        <li>
+            <a href="">הסכם אבטחת מידע</a>
+        </li>
+        <li>
+            <a href="">מפת האתר</a>
+        </li>
+        <li>
+            <a href="">צור קשר</a>
+        </li>
+        <li>
+            <a href="">ביטול עסקה</a>
+        </li>
+        <li>
+            <a href="">קריירה ביד2</a>
+        </li>
+        <li>
+            <a href="">דירות חדשות</a>
+        </li>
+    </ul>
+    <div class="version">
+        גרסה:
+        {{version}}
+    </div>
+</footer>

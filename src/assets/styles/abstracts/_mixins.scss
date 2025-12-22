@@ -6,6 +6,5 @@
     }
 }
 @mixin under-header($header-height) {
-    position: relative;
-    top: $header-height;
+    margin-top: $header-height;
 }

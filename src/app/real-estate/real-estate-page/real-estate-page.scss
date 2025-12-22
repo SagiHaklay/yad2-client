@@ -14,10 +14,11 @@
 @use '../../../assets/styles/abstracts/mixins' as mix;
 .page-content {
     @include mix.under-header(vars.$header-mobile-height);
+    min-height: calc(100vh - vars.$header-mobile-height);
 }
 @media screen and (min-width: vars.$desktop-width) {
     .page-content {
         @include mix.under-header(vars.$header-height);
-
+        min-height: calc(100vh - vars.$header-height);
     }
 }
