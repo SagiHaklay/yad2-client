@@ -5,6 +5,8 @@
 }
 .page-content {
     @include mix.under-header($header-mobile-height);
+    background-color: $snow;
+    min-height: calc(100vh - $header-mobile-height);
 }
 @media screen and (min-width: $desktop-width) {
     .page-content {
@@ -12,6 +14,7 @@
         grid-template-columns: $sidebar-width auto;
         grid-template-areas: 'sidebar content';
         @include mix.under-header($header-height);
+        min-height: calc(100vh - $header-height);
     }
     .profile-content {
         grid-area: content;

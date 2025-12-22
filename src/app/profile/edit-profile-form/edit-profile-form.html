@@ -1,1 +1,61 @@
-<p>edit-profile-form works!</p>
+<div class="profile-content">
+    <h2 class="profile-title">עדכון פרטים</h2>
+    <div class="profile-card">
+        <div class="profile-image"></div>
+        <form class="profile-form">
+            <div class="form-title">פרטים אישיים</div>
+            <div class="form-group form-grid">
+                <div class="form-field">
+                    <label for="">שם פרטי*</label>
+                    <input type="text" />
+                    <div class="error-msg"></div>
+                </div>
+                <div class="form-field">
+                    <label for="">שם משפחה*</label>
+                    <input type="text" />
+                    <div class="error-msg"></div>
+                </div>
+                <div class="form-field">
+                    <label for="">טלפון נייד*</label>
+                    <input type="tel" />
+                    <div class="error-msg"></div>
+                </div>
+                <div class="form-field">
+                    <label for="">מייל*</label>
+                    <input type="email" />
+                    <div class="error-msg"></div>
+                </div>
+                <div class="form-field">
+                    <label for="">תאריך לידה</label>
+                    <input type="date" />
+                    <div class="error-msg"></div>
+                </div>
+            </div>
+            <div class="form-title">כתובת</div>
+            <p class="description">אם תמלאו את הכתובת, נוכל לחבר אותה אוטומטית על גבי המודעה הבאה שתפרסמו</p>
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="">ישוב / עיר*</label>
+                    <input type="text" />
+                    <div class="error-msg"></div>
+                </div>
+                <div class="address">
+                    <div class="form-field">
+                        <label for="">רחוב*</label>
+                        <input type="text" />
+                        <div class="error-msg"></div>
+                    </div>
+                    <div class="form-field house-num">
+                        <label for="">מספר בית*</label>
+                        <input type="text" />
+                        <div class="error-msg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="reset-btn" type="reset">ביטול</button>
+                <button class="submit-btn" type="submit">שמירה</button>
+            </div>
+        </form>
+    </div>
+</div>
