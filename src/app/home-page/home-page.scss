@@ -1,9 +1,14 @@
 @use '../../assets/styles/abstracts/mixins' as *;
 @use '../../assets/styles/abstracts/variables' as *;
+:host {
+    position: absolute;
+    max-width: 100vw;
+    overflow: hidden
+}
 .page-content {
     @include under-header($header-mobile-height);
     min-height: calc(100vh - $header-mobile-height);
-    width: 100%;
+    max-width: 100vw;
     box-sizing: border-box;
 }
 .site-link-container {

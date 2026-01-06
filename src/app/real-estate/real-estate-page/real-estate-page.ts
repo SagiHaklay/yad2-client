@@ -7,7 +7,7 @@ import { Footer } from '../../footer/footer';
 
 @Component({
   selector: 'app-real-estate-page',
-  imports: [NavbarContainer, RouterOutlet, Footer],
+  imports: [NavbarContainer, RouterOutlet],
   templateUrl: './real-estate-page.html',
   styleUrl: './real-estate-page.scss',
 })

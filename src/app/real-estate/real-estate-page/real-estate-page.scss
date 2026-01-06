@@ -1,17 +1,11 @@
 @use '../../../assets/styles/abstracts/variables' as vars;
-// :host {
-//     // margin-top: $header-mobile-height;
-//     position: relative;
-//     top: $header-mobile-height;
-// }
 
-// @media screen and (min-width: 881px) {
-//     :host {
-//         // margin-top: $header-height;
-//         top: $header-height;
-//     }
-// }
 @use '../../../assets/styles/abstracts/mixins' as mix;
+:host {
+    position: absolute;
+    max-width: 100vw;
+    overflow: hidden;
+}
 .page-content {
     @include mix.under-header(vars.$header-mobile-height);
     min-height: calc(100vh - vars.$header-mobile-height);

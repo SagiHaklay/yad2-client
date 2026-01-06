@@ -1,0 +1,142 @@
+@use '../../../assets/styles/abstracts/variables' as *;
+:host {
+    background-color: white;
+    color: $jet;
+    display: flex;
+    padding: 18px 8px;
+    border-bottom: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+.desktop-mode {
+    display: none;
+}
+.mobile-mode {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    // padding: 0.5rem;
+}
+.btn-container {
+    display: flex;
+    border-radius: 30px;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: whitesmoke;
+    button {
+        background-color: transparent;
+        border: none;
+    }
+    .form-display-btn {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+@media screen and (min-width: $desktop-width) {
+    .desktop-mode {
+        display: flex;
+        height: 100%;
+    }
+    .mobile-mode {
+        display: none;
+    }
+    .desktop-form {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem;
+        .seperator {
+            width: 1px;
+            height: 40px;
+            background-color: gainsboro;
+        }
+    }
+    .location-input {
+        display: flex;
+        border-radius: 30px;
+        padding: 0.75rem;
+        width: 280px;
+        border: 1px solid $pastel-gray;
+    }
+    .location-input::placeholder {
+        color: $pastel-gray;
+    }
+    .toggle-btn {
+        display: flex;
+        border: 1px solid $pastel-gray;
+        border-radius: 2rem;
+        padding: 0.75rem;
+        background-color: transparent;
+        cursor: pointer;
+        gap: 0.3rem;
+    }
+    .toggle-btn:hover {
+        background-color: $snow;
+    }
+    .search-btn {
+        display: flex;
+        background-color: $safety-orange;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        padding: 0.75rem;
+        height: 42px;
+        width: 108px;
+    }
+    .search-btn:hover {
+        background-color: $dark-orange;
+    }
+    .notification-btn {
+        color: $safety-orange;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        gap: 0.3rem;
+    }
+    .form-section {
+        position: relative;
+        .form-card {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            border-radius: 12px;
+            border: 1px solid $isabelline;
+            box-shadow: $elevation-xlarge;
+            z-index: 50;
+            margin-top: 10px;
+            background-color: white;
+            
+            
+        }
+    }
+    .transaction-select {
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            color: $jet;
+            display: flex;
+            justify-content: space-between;
+            min-width: 154px;
+            align-items: center;
+            padding: 10px 20px;
+            height: 44px;
+            gap: 12px;
+            font-size: 1rem;
+        }
+        a:hover {
+            background-color: $snow;
+        }
+        .selected {
+            font-weight: 600;
+        }
+        svg {
+            color: $safety-orange;
+        }
+    }
+}

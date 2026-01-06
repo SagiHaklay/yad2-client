@@ -3,5 +3,9 @@ export interface UserProfile {
     lastName: string,
     email: string,
     phone: string,
-    dateOfBirth?: Date
+    dateOfBirth?: Date,
+    city?: string,
+    street?: string,
+    houseNumber?: number,
+    profileImageUrl?: string
 }

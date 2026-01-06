@@ -1,0 +1,34 @@
+@use '../../../assets/styles/abstracts/variables' as *;
+$search-form-height: 3rem;
+.search-form {
+    display: block;
+    min-height: $search-form-height;
+    width: 100vw;
+}
+.grid-container {
+    width: 100vw;
+    box-sizing: border-box;
+}
+.map-container {
+    display: none;
+}
+@media screen and (min-width: $desktop-width) {
+    
+    .grid-container {
+        display: grid;
+        grid-template-columns: 693px auto;
+        grid-template-areas: 'main map';
+        height: calc(100vh - $header-height - $search-form-height);
+    }
+    .map-container {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: purple;
+        grid-area: map;
+    }
+    .page-content {
+        overflow-y: scroll;
+        width: 100%;
+    }
+}

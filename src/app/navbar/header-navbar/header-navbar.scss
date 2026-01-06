@@ -1,8 +1,8 @@
 @use '../../../assets/styles/abstracts/variables' as *;
 .main-header {
     background-color: white;
-    width: 100%;
-    height: $header-mobile-height;
+    width: 100vw;
+    min-height: $header-mobile-height;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,18 +10,20 @@
     box-shadow: $shadow-level-2;
     position: fixed;
     top: 0;
+    right: 0;
     z-index: 100;
     .header-group {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 0.5rem;
+        // gap: 0.5rem;
         height: 100%;
+        padding-left: 1.7rem;
     }
 }
 .header-item {
     display: flex;
-    padding-left: 1rem;
+    // padding-left: 1rem;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -36,7 +38,8 @@
         gap: 0.3rem;
         color: black;
         min-width: 3rem;
-        padding: 0.5rem;
+        padding: 0 0.5rem;
+        width: 100%;
     }
     .header-link:hover {
         background-color: #f8f8f8;
@@ -105,7 +108,7 @@ img {
 @media screen and (min-width: 881px) {
     .main-header {
         box-shadow: none;
-        height: $header-height;
+        min-height: $header-height;
         flex-wrap: wrap;
         border-bottom: 1px solid gainsboro;
         opacity: .96;
