@@ -1,0 +1,61 @@
+@use '../../../../assets/styles/abstracts/variables' as *;
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 20px;
+}
+@mixin thumb() {
+    background-color: white;
+    border: 1px solid $pastel-gray;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    margin-top: -13px;
+}
+@mixin track() {
+    display: block;
+    background-color: $pastel-gray;
+    height: 3px;
+    border-radius: 6px;
+}
+.min-max {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    input {
+        width: 100%;
+        border-radius: 4px;
+        padding: 0.625rem 0.75rem;
+        border: 1px solid $pastel-gray;
+        outline: none;
+        min-height: 42px;
+    }
+}
+.slider {
+    min-height: 42px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    input {
+        appearance: none;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        &::-webkit-slider-runnable-track { @include track() }
+        &::-ms-track { @include track() }
+        &::-moz-range-track { @include track() }
+        &::-webkit-slider-thumb { @include thumb() }
+        &::-ms-thumb { @include thumb() }
+        &::-moz-range-thumb { @include thumb() }
+    }
+    
+}

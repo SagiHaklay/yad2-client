@@ -34,6 +34,9 @@
         width: 100%;
     }
 }
+.price-range {
+    width: 380px;
+}
 @media screen and (min-width: $desktop-width) {
     .desktop-mode {
         display: flex;
@@ -107,7 +110,7 @@
             border-radius: 12px;
             border: 1px solid $isabelline;
             box-shadow: $elevation-xlarge;
-            z-index: 50;
+            z-index: 100;
             margin-top: 10px;
             background-color: white;
             

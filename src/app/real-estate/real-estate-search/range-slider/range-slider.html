@@ -1,0 +1,9 @@
+<div class="min-max">
+    <input type="text" [formControl]="minValue" pattern="[0-9]" inputmode="numeric" placeholder="0 ₪" />
+    <span>-</span>
+    <input type="text" [formControl]="maxValue" pattern="[0-9]" inputmode="numeric" placeholder="20,000+ ₪" />
+</div>
+<div class="slider">
+    <input type="range" [formControl]="minValue" min="0" [max]="maxValue.value" [style.width]="maxPercent" step="1000" value="0" />
+    <input type="range" [formControl]="maxValue" [min]="minValue.value" [style.right]="minPercent" max="20000" step="1000" value="20000" />
+</div>
