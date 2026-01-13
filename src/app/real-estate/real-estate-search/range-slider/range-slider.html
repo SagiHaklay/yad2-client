@@ -1,9 +1,19 @@
-<div class="min-max">
-    <input type="text" [formControl]="minValue" pattern="[0-9]" inputmode="numeric" placeholder="0 ₪" />
-    <span>-</span>
-    <input type="text" [formControl]="maxValue" pattern="[0-9]" inputmode="numeric" placeholder="20,000+ ₪" />
-</div>
-<div class="slider">
-    <input type="range" [formControl]="minValue" min="0" [max]="maxValue.value" [style.width]="maxPercent" step="1000" value="0" />
-    <input type="range" [formControl]="maxValue" [min]="minValue.value" [style.right]="minPercent" max="20000" step="1000" value="20000" />
-</div>
+<form [formGroup]="rangeControls">
+    <div class="min-max">
+        <div class="number-input">
+            <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="minText" pattern="[0-9]" maxlength="12" inputmode="numeric" placeholder="0 ₪" />
+        </div>
+        
+        <span> - </span>
+        <div class="number-input">
+            <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="maxText" pattern="[0-9]" maxlength="12" inputmode="numeric" placeholder="20,000+ ₪" />
+        </div>
+    </div>
+    <div class="slider">
+        <input type="range" (change)="handleMinSliderChange()" formControlName="min" min="0" [max]="rangeMax?.value" [style.width]="maxPercent+'%'" step="1000" value="0" />
+        <input type="range" (change)="handleMaxSliderChange()" formControlName="max" [min]="rangeMin?.value" [style.right]="minPercent+'%'" [style.width]="(100 - minPercent)+'%'" max="20000" step="1000" value="20000" />
+        <div class="custom-trail" [style.right]="`calc(${minPercent}% - 15px)`" [style.width]="`${maxPercent-minPercent}%`"></div>
+        <div class="custom-thumb" [style.right]="`calc(${minPercent}% - 15px)`">||</div>
+        <div class="custom-thumb" [style.right]="`calc(${maxPercent}% - 15px)`">||</div>
+    </div>
+</form>
