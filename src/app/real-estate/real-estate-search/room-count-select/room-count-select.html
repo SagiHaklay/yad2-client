@@ -1,0 +1,25 @@
+@for (partition of optionPartitions(); track $index; let i = $index) {
+    @if (i === 1) {
+        <div class="selection">
+            @for (option of partition; track $index) {
+                <button type="button" (click)="toggleOption(option)">
+                    @if (option === maxValue) {
+                        {{option + '+'}}
+                    } @else {
+                        {{option}}
+                    }
+                </button>
+            }
+        </div>
+    } @else {
+        @for (option of partition; track $index) {
+            <button type="button" (click)="toggleOption(option)">
+                @if (option === maxValue) {
+                    {{option + '+'}}
+                } @else {
+                    {{option}}
+                }
+            </button>
+        }
+    }
+}
