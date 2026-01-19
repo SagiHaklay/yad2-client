@@ -1,0 +1,54 @@
+<div class="heading">
+    ניתן לבחור מספר סוגים
+</div>
+<div class="category-container">
+    <div class="category">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.2 4.31v16.11h2v-3.5a1 1 0 011-1h4a1 1 0 011 1v3.5h2V3.54l-10 .77zm6.5 13.11h-3v3h3v-3zm-6.5 4.5h17V10.787a1 1 0 00-.858-.99L15.7 9.135V3a1 1 0 00-1.076-.997l-11 .846a1 1 0 00-.924.997V21.92h1.5zm11.5-1.5v-9.77l4 .571v9.2h-4zM6.2 11.5a.5.5 0 01.5-.5h.5a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-.5a.5.5 0 01-.5-.5v-2zm.5-5.58a.5.5 0 00-.5.5v2a.5.5 0 00.5.5h.5a.5.5 0 00.5-.5v-2a.5.5 0 00-.5-.5h-.5zm4 5.58a.5.5 0 01.5-.5h.5a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-.5a.5.5 0 01-.5-.5v-2zm.5-5.58a.5.5 0 00-.5.5v2a.5.5 0 00.5.5h.5a.5.5 0 00.5-.5v-2a.5.5 0 00-.5-.5h-.5z" fill="currentColor"></path></svg>
+        <span>
+            דירות
+        </span>
+    </div>
+    <div class="type-select">
+        <button type="button" [class.selected]="isAllApartments()" (click)="toggleAllApartments()">
+            הכל
+        </button>
+        @for (type of apartmentTypes; track $index) {
+            <button type="button" [class.selected]="apartmentsFilter().has(type)" (click)="toggleApartmentType(type)">
+                {{type | propertyType}}
+            </button>
+        }
+    </div>
+</div>
+<div class="category-container">
+    <div class="category">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.14 3.505l-.168-.005-.163.01c-.43.042-.834.231-1.14.538l-6.621 6.619-.104.113c-.46.543-.567 1.3-.3 1.942l.062.134.072.128c.334.54.934.896 1.605.896h.324v1.423l-.002.1.003.037v3.178l.005.14A1.89 1.89 0 007.59 20.5h8.822l.14-.005.137-.015a1.891 1.891 0 001.606-1.862v-4.739h.324l.154-.005a1.887 1.887 0 001.585-1.152 1.89 1.89 0 00-.404-2.055l-6.62-6.62-.124-.113a1.882 1.882 0 00-1.07-.43zm-.146 1.552l-.06.008a.322.322 0 00-.112.048l-.048.04-6.62 6.62c-.107.108-.124.214-.068.349.047.113.116.176.226.194l.071.006h1.104a.781.781 0 01.772.681l.006.098v2.208l.002.028-.002.092v3.189c0 .161.107.288.257.318l.067.006h1.424v-3.633c0-.987.775-1.807 1.745-1.88l.14-.004h2.206c.987 0 1.806.774 1.879 1.744l.005.14v3.633h1.424a.316.316 0 00.317-.257l.007-.067V13.1a.782.782 0 01.681-.772l.098-.006h1.104c.152 0 .24-.064.296-.2.047-.113.043-.205-.021-.295l-.046-.053-6.621-6.62a.325.325 0 00-.169-.09l-.064-.007zm1.232 9.93h-2.45c-.198 0-.343.112-.376.272l-.007.072.007 3.61h3.216l-.007-3.61c0-.173-.12-.307-.302-.338l-.08-.007z" fill="currentColor"></path></svg>
+        <span>
+            בתים
+        </span>
+    </div>
+    <div class="type-select">
+        <button type="button" [class.selected]="isAllHouses()" (click)="toggleAllHouses()">
+            הכל
+        </button>
+        @for (type of houseTypes; track $index) {
+            <button type="button" [class.selected]="housesFilter().has(type)" (click)="toggleHouseType(type)">
+                {{type | propertyType}}
+            </button>
+        }
+    </div>
+</div>
+<div class="category-container">
+    <div class="category">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.562 3.504a.75.75 0 00-1.124 0l-2 2.265-.066.087a.75.75 0 00-.122.41V8h-1.5V6.265a.75.75 0 00-.188-.496l-2-2.265a.75.75 0 00-1.124 0l-2 2.265-.066.087a.75.75 0 00-.122.41V8h-1.5V6.265a.75.75 0 00-.188-.496l-2-2.265a.75.75 0 00-1.124 0l-2 2.265a.75.75 0 00-.188.496V21c0 .414.336.75.75.75h4l.102-.007A.75.75 0 007.75 21v-2.5h1.5V21c0 .414.336.75.75.75h4l.102-.007A.75.75 0 0014.75 21v-2.5h1.5V21c0 .414.336.75.75.75h4a.75.75 0 00.75-.75V6.265a.75.75 0 00-.188-.496l-2-2.265zM3.75 6.548l1.249-1.415L6.25 6.549V20.25h-2.5V6.548zM12 5.133l-1.25 1.415V20.25h2.5V6.549L12 5.133zm5.75 1.415L19 5.133l1.25 1.416V20.25h-2.5V6.548zm-1.5 8.952h-1.5V17h1.5v-1.5zm-8.5 0h1.5V17h-1.5v-1.5zm8.5-3h-1.5V14h1.5v-1.5zm-8.5 0h1.5V14h-1.5v-1.5zm8.5-3h-1.5V11h1.5V9.5zm-8.5 0h1.5V11h-1.5V9.5z" fill="currentColor"></path></svg>
+        <span>
+            אחר
+        </span>
+    </div>
+    <div class="type-select">
+        @for (type of otherTypes; track $index) {
+            <button type="button" [class.selected]="othersFilter().has(type)" (click)="toggleOtherType(type)">
+                {{type | propertyType}}
+            </button>
+        }
+    </div>
+</div>

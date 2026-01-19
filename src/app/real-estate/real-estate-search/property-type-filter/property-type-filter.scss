@@ -1,0 +1,56 @@
+@use '../../../../assets/styles/abstracts/variables' as *;
+:host {
+    color: $jet;
+    padding: 26px 20px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: white;
+    box-sizing: border-box;
+    width: 362px;
+}
+.heading {
+    font-weight: 500;
+    color: $graniteGrey;
+}
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.category {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    font-weight: 600;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    svg {
+        font-size: 1.5rem;
+    }
+}
+.type-select {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 14px;
+    button {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.72rem 0.86rem;
+        border: 1px solid $pastel-gray;
+        border-radius: 0.28rem;
+        background-color: white;
+        font-size: 0.875rem;
+        line-height: 1;
+    }
+    .selected, button:hover {
+        color: $safety-orange;
+        border: 1px solid $safety-orange;
+    }
+    .selected {
+        background-color: $bianca;
+    }
+}
