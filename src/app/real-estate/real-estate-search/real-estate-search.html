@@ -93,8 +93,8 @@
         
     </form>
 </div>
-@if (true) {
-    <div class="modal-container">
+@if (false) {
+    <div class="modal-container desktop-mode">
         <div class="modal">
             <div class="modal-header">
                 <span class="title">
@@ -130,3 +130,65 @@
     </div>
     
 </div>
+@if (true) {
+    <form class="mobile-form mobile-mode">
+        <div class="header">
+            <span>חיפוש נדל"ן</span>
+            <button class="close-btn" type="button">
+                <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.935 5.278a.75.75 0 01.085.982l-.066.078-4.903 5.077 5.146 5.328.066.078a.75.75 0 01-1.145.964l-5.11-5.29-5.109 5.29a.75.75 0 01-1.144-.964l.065-.078 5.146-5.328-4.903-5.077-.065-.078a.75.75 0 011.144-.964l4.866 5.04 4.867-5.04a.75.75 0 011.06-.018z" fill="currentColor"></path></svg>
+            </button>
+        </div>
+        <div class="form-content">
+            <div class="form-section">
+                <strong class="title">
+                    מיקום
+                </strong>
+                <input class="location-input" type="text" placeholder="איזור, עיר שכונה או רחוב" />
+            </div>
+            <div class="form-section">
+                <strong class="title">
+                    סוג עסקה
+                </strong>
+                <div class="transaction-links">
+                    <a >מכירה</a>
+                    <a >השכרה</a>
+                </div>
+            </div>
+            <div class="form-section">
+                <strong class="title">
+                    סוג הנכס
+                </strong>
+                <button class="dropdown-btn" type="button">
+                    <span>
+                        סוג הנכס
+                    </span>
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-icon"><path d="M17.695 8.675a.75.75 0 011.13.98l-.073.085-6.18 6.136a.75.75 0 01-.976.07l-.084-.074L5.41 9.727a.75.75 0 01.98-1.13l.084.074 5.574 5.612 5.647-5.608z" fill="currentColor"></path></svg>
+                </button>
+            </div>
+            <div class="form-section">
+                <strong class="title">
+                    מחיר
+                </strong>
+                <app-range-slider 
+                    class="price-range" 
+                    [isCurrency]="true" 
+                    [minNumberValue]="0"
+                    [maxNumberValue]="20000"
+                    [step]="1000"
+                ></app-range-slider>
+            </div>
+            <div class="form-section">
+                <strong class="title">
+                    חדרים
+                </strong>
+                <app-room-count-select></app-room-count-select>
+            </div>
+            <app-additional-filters></app-additional-filters>
+        </div>
+        <div class="form-footer">
+            <button class="search-btn" type="submit">
+                חיפוש
+            </button>
+        </div>
+    </form>
+}
