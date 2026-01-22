@@ -1,17 +1,42 @@
 <form [formGroup]="rangeControls">
     <div class="min-max">
         <div class="number-input">
-            <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="minText" pattern="[0-9]" maxlength="12" inputmode="numeric" placeholder="0 ₪" />
+            @if (isDropdown()) {
+                <select formControlName="min">
+                    @for (item of options(); track $index) {
+                        <option [value]="$index" [selected]="$index === rangeMin?.value">{{item}}</option>
+                    }
+                </select>
+            }
+            @else if (isCurrency()) {
+                <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="minText" pattern="[0-9]" maxlength="12" inputmode="numeric" [placeholder]="`${minValue()} ₪`" />
+            }
+            @else {
+                <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="minText" pattern="[0-9]" maxlength="12" inputmode="numeric" [placeholder]="minValue()" />
+            }
+            
         </div>
         
         <span> - </span>
         <div class="number-input">
-            <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="maxText" pattern="[0-9]" maxlength="12" inputmode="numeric" placeholder="20,000+ ₪" />
+            @if (isDropdown()) {
+                <select formControlName="max">
+                    @for (item of options(); track $index) {
+                        <option [value]="$index" [selected]="$index === rangeMax?.value">{{item}}</option>
+                    }
+                </select>
+            }
+            @else if (isCurrency()) {
+                <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="maxText" pattern="[0-9]" maxlength="12" inputmode="numeric" [placeholder]="`${maxValue()}+ ₪`" />
+            }
+            @else {
+                <input type="text" (input)="handleTextInput()" (blur)="updateTextInputs()" formControlName="maxText" pattern="[0-9]" maxlength="12" inputmode="numeric" [placeholder]="`${maxValue()}+`" />
+            }
         </div>
     </div>
     <div class="slider">
-        <input type="range" (change)="handleMinSliderChange()" formControlName="min" min="0" [max]="rangeMax?.value" [style.width]="maxPercent+'%'" step="1000" value="0" />
-        <input type="range" (change)="handleMaxSliderChange()" formControlName="max" [min]="rangeMin?.value" [style.right]="minPercent+'%'" [style.width]="(100 - minPercent)+'%'" max="20000" step="1000" value="20000" />
+        <input type="range" (change)="handleMinSliderChange()" formControlName="min" [min]="minValue()" [max]="rangeMax?.value" [style.width]="maxPercent+'%'" [step]="step()" />
+        <input type="range" (change)="handleMaxSliderChange()" formControlName="max" [min]="rangeMin?.value" [style.right]="minPercent+'%'" [style.width]="(100 - minPercent)+'%'" [max]="maxValue()" [step]="step()" />
         <div class="custom-trail" [style.right]="`calc(${minPercent}% - 15px)`" [style.width]="`${maxPercent-minPercent}%`"></div>
         <div class="custom-thumb" [style.right]="`calc(${minPercent}% - 15px)`">||</div>
         <div class="custom-thumb" [style.right]="`calc(${maxPercent}% - 15px)`">||</div>

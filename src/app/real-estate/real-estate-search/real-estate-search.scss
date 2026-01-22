@@ -37,6 +37,80 @@
 .price-range {
     width: 380px;
 }
+.modal-container {
+    position: fixed;
+    z-index: 150;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: .25);
+    .modal {
+        position: fixed;
+        overflow: hidden;
+        border: 1px solid $isabelline;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px 0 rgba($color: #000000, $alpha: .15);
+        z-index: 200;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        opacity: 1;
+        width: 520px;
+        height: 650px;
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+    .modal-header {
+        padding: 14px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid gainsboro;
+        .title {
+            font-weight: 500;
+            font-size: 1.125rem;
+        }
+        .close-btn {
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            top: 5px;
+            left: 5px;
+            cursor: pointer;
+        }
+    }
+    .modal-content {
+        overflow-y: scroll;
+        max-width: 100%;
+        padding: 20px 24px 48px;
+        height: 70vh;
+    }
+    .modal-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid gainsboro;
+        padding: 14px 32px;
+        .reset-btn {
+            border: none;
+            background-color: transparent;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .confirm-btn {
+            border-radius: 47px;
+            border: 1px solid $safety-orange;
+            color: $safety-orange;
+            background-color: white;
+            padding: 10px 20px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}
 @media screen and (min-width: $desktop-width) {
     .desktop-mode {
         display: flex;

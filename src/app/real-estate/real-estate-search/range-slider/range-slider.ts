@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,14 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 })
 export class RangeSlider {
   private fb = inject(FormBuilder);
-  
-  minValue = input(0);
-  maxValue = input(20000);
+  isCurrency = input(false);
+  isDropdown = input(false);
+  options = input<string[]>([]);
+  minNumberValue = input(0);
+  maxNumberValue = input(0);
+  minValue = computed(() => this.isDropdown()? 0 : this.minNumberValue());
+  maxValue = computed(() => this.isDropdown()? this.options().length - 1 : this.maxNumberValue());
+  step = input(1);
   rangeControls = this.fb.group({
     min: [this.minValue()],
     max: [this.maxValue()],
@@ -19,6 +24,12 @@ export class RangeSlider {
     maxText: ['']
   });
   rangeSize = computed(() => this.maxValue() - this.minValue());
+  constructor() {
+    effect(() => {
+      this.rangeMin?.setValue(this.minValue());
+      this.rangeMax?.setValue(this.maxValue());
+    });
+  }
   get rangeMin() {
     return this.rangeControls.get('min');
   }
@@ -35,18 +46,18 @@ export class RangeSlider {
     return (this.rangeMin?.value || 0) / this.rangeSize() * 100;
   }
   get maxPercent() {
-    return (this.rangeMax?.value || 0) / this.rangeSize() * 100;
+    return (this.rangeMax?.value || this.maxValue()) / this.rangeSize() * 100;
   }
   updateTextInputs() {
     if (this.rangeMin?.value === this.minValue()) {
       this.minText?.setValue('');
     } else {
-      this.minText?.setValue(`${this.rangeMin?.value} ₪`);
+      this.minText?.setValue(`${this.rangeMin?.value}${this.isCurrency()? ' ₪': ''}`);
     }
     if (this.rangeMax?.value === this.maxValue()) {
       this.maxText?.setValue('');
     } else {
-      this.maxText?.setValue(`${this.rangeMax?.value} ₪`);
+      this.maxText?.setValue(`${this.rangeMax?.value}${this.isCurrency()? ' ₪': ''}`);
     }
   }
   handleMinSliderChange() {
@@ -72,14 +83,17 @@ export class RangeSlider {
     this.updateTextInputs();
   }
   handleTextInput() {
-    const textMinVal = Number((this.minText?.value as string).replace(' ₪', ''));
-    const textMaxVal = Number((this.maxText?.value as string).replace(' ₪', ''));
-    if (this.minText?.value !== '') {
-      this.minText?.setValue(textMinVal + ' ₪');
+    const textMinVal = Number((this.minText?.value as string).replace(' ', '').replace('₪', ''));
+    const textMaxVal = Number((this.maxText?.value as string).replace(' ', '').replace('₪', ''));
+    if (this.isCurrency()) {
+      if (this.minText?.value !== '') {
+        this.minText?.setValue(textMinVal + ' ₪');
+      }
+      if (this.maxText?.value !== '') {
+        this.maxText?.setValue(textMaxVal + ' ₪');
+      }
     }
-    if (this.maxText?.value !== '') {
-      this.maxText?.setValue(textMaxVal + ' ₪');
-    }
+    
     
     const actualMin = textMinVal < textMaxVal? textMinVal : textMaxVal;
     const actualMax = textMaxVal > textMinVal? textMaxVal : textMinVal;

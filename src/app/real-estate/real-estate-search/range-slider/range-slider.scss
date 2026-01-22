@@ -6,6 +6,7 @@
     padding: 24px 20px;
     color: $jet;
     width: 100%;
+    box-sizing: border-box;
 }
 form {
     display: flex;
@@ -49,7 +50,7 @@ form {
         height: 42px;
         display: flex;
         box-sizing: border-box;
-        input {
+        input, select {
             background-color: transparent;
             border: none;
             outline: none;
