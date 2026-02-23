@@ -1,3 +1,5 @@
+import { RealEstateAd } from "../../real-estate/types/real-estate-ad";
+
 export interface UserProfile {
     firstName: string,
     lastName: string,
@@ -7,5 +9,7 @@ export interface UserProfile {
     city?: string,
     street?: string,
     houseNumber?: number,
-    profileImageUrl?: string
+    profileImageUrl?: string,
+    realEstateAds: RealEstateAd[],
+    favoriteAds: RealEstateAd[]
 }

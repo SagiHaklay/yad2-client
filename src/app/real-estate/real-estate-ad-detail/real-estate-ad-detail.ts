@@ -4,10 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { RealEstateFullAd } from '../types/real-estate-full-ad';
 import { environment } from '../../../environments/environment';
 import { CurrencyPipe } from '@angular/common';
+import { getStringType } from '../types/real-estate-property-type';
+import { LocationDetailsPipe } from '../location-details-pipe';
 
 @Component({
   selector: 'app-real-estate-ad-detail',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, LocationDetailsPipe],
   templateUrl: './real-estate-ad-detail.html',
   styleUrl: './real-estate-ad-detail.scss',
 })
@@ -17,16 +19,16 @@ export class RealEstateAdDetail {
     initialValue: { ad: {}}
   });
   ad = computed(() => this.data()['ad'] as RealEstateFullAd);
-  mainImageUrl = computed(() => this.ad().mainImageUrl || environment.defaultImageUrl);
+  mainImageUrl = computed(() => this.ad().imageUrl || environment.defaultImageUrl);
   imageUrls = computed(() => this.ad().imageUrls.length === 0? [environment.defaultImageUrl] : this.ad().imageUrls);
-  locationDetail = computed(() => {
-    let details = [this.ad().propertyType];
-    if (this.ad().neighborhood) {
-      details.push(this.ad().neighborhood || '');
-    }
-    details.push(this.ad().city);
-    return details.join(', ');
-  });
+  // locationDetail = computed(() => {
+  //   let details = [getStringType(this.ad().propertyType)];
+  //   if (this.ad().neighborhood) {
+  //     details.push(this.ad().neighborhood || '');
+  //   }
+  //   details.push(this.ad().city);
+  //   return details.join(', ');
+  // });
   isContactInfoVisible = signal(false);
 
   showContactInfo() {
@@ -35,4 +37,6 @@ export class RealEstateAdDetail {
   hideContactInfo() {
     this.isContactInfoVisible.set(false);
   }
+
+  
 }

@@ -1,8 +1,10 @@
-import { effect, Injectable, signal } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { effect, inject, Injectable, signal } from '@angular/core';
+import { Observable, of, tap, throwError } from 'rxjs';
 import { LoginInfo } from './types/login-info';
 import { RegisterModel } from './types/register-model';
 import { LoginResponse } from './types/login-response';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +13,8 @@ export class AuthService {
   private _token = signal<string | null>(null);
   private _userId = signal<number | null>(null);
   private _loginInfoCache = signal<LoginInfo| null>(null);
+  private http = inject(HttpClient);
+  private readonly authApiUrl = `${environment.restApiUrl}/auth`;
   currentToken = this._token.asReadonly();
   currentUserId = this._userId.asReadonly();
   loginInfoCache =  this._loginInfoCache.asReadonly();
@@ -51,12 +55,18 @@ export class AuthService {
   }
   login(email: string, password: string): Observable<LoginResponse> {
     // return throwError(() => new Error('login failed'));
-    this._token.set('token');
-    this._userId.set(1);
-    return of({
-      token: 'token',
-      userId: 1
-    });
+    // this._token.set('token');
+    // this._userId.set(1);
+    // return of({
+    //   token: 'token',
+    //   userId: 1
+    // });
+    return this.http.post<LoginResponse>(`${this.authApiUrl}/login`, {
+      email, password
+    }).pipe(tap(res => {
+      this._token.set(res.token);
+      this._userId.set(res.userId);
+    }));
   }
   logout() {
     this._token.set(null);

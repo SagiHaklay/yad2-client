@@ -1,3 +1,5 @@
+import { RealEstatePropertyType } from "./real-estate-property-type";
+
 export interface RealEstateAd {
     id: number,
     street: string,
@@ -5,11 +7,10 @@ export interface RealEstateAd {
     city: string,
     price?: number,
     isFavorite?: boolean,
-    imageUrls: string[],
-    mainImageUrl?: string,
+    imageUrl?: string,
     roomCount?: number,
     floor?: number,
-    area?: number,
-    propertyType: string,
+    totalArea?: number,
+    propertyType: RealEstatePropertyType,
     neighborhood?: string
 }

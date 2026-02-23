@@ -1,7 +1,10 @@
 import { Injectable, computed, effect, inject, signal, untracked } from '@angular/core';
 import { AuthService } from '../../auth/auth-service';
-import { Observable, of, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { RealEstateAd } from '../../real-estate/types/real-estate-ad';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { UserProfile } from '../types/user-profile';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +13,8 @@ export class FavoriteService {
   private authService = inject(AuthService);
   private guestFavorites = signal(this.loadFromStorage());
   private userFavoriteCount = signal(0);
+  private http = inject(HttpClient);
+  private readonly apiUrl = `${environment.restApiUrl}/profile`;
   favoriteCount = computed(() => {
     if (this.authService.currentUserId() !== null) {
       return this.userFavoriteCount();
@@ -44,10 +49,9 @@ export class FavoriteService {
     return JSON.parse(localStorage.getItem('guestFavorites') || '[]');
   }
   getFavorites(userId: number): Observable<RealEstateAd[]> {
-    return of([
-      {id: 1, street: 'מצפה', city: 'שוהם', houseNum: 26, price: 2000, imageUrls: [], propertyType: 'דירה', roomCount: 3, floor: 4, isFavorite: true},
-      {id: 2, street: 'מצפה', city: 'שוהם', houseNum: 27, price: 2000, imageUrls: [], propertyType: 'דירה', roomCount: 3, floor: 4, isFavorite: true}
-    ]).pipe(tap(favs => this.userFavoriteCount.set(favs.length)));
+    return this.http.get<UserProfile>(`${this.apiUrl}/${userId}`).pipe(
+      map(profile => profile.favoriteAds),
+      tap(favs => this.userFavoriteCount.set(favs.length)));
   }
   addToFavorites(adId: number, userId: number | null = null) {
     if (userId === null) {

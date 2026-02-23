@@ -1,17 +1,30 @@
+import { PropertyFeature } from "./property-feature";
+import { PropertyStatus } from "./property-status";
+import { PropertyView } from "./propery-view";
 import { RealEstateAd } from "./real-estate-ad";
 
 export interface RealEstateFullAd extends RealEstateAd {
     contactPhone: string,
     contactName?: string,
-    maxFloor?: number,
+    totalFloors?: number,
+    onColumns: boolean,
+    airDirectionCount: number,
     parkingCount?: number,
-    description?: string,
-    isRent: boolean,
-    propertyStatus: string,
+    balconyCount: number,
+    showerCount: number,
+    propertyDescription?: string,
+    isRent?: boolean,
+    propertyFeatures: PropertyFeature[],
+    propertyStatus: PropertyStatus,
+    view: PropertyView,
+    isBackProperty: boolean,
     builtArea?: number,
     monthlyPay?: number,
-    vaad?: number,
-    arnonaPer2Months?: number,
+    houseCommiteePayment?: number,
+    propertyTax?: number,
     paymentCount?: number
-    entryDate?: Date
+    entryDate?: string,
+    gardenArea?: number,
+    imageUrls: string[],
+    videoUrls: string[]
 }
