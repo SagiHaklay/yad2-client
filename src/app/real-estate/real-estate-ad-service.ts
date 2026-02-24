@@ -2,8 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { RealEstateAd } from './types/real-estate-ad';
 import { RealEstateFullAd } from './types/real-estate-full-ad';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { SearchFilters } from './types/search-filters';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,13 @@ export class RealEstateAdService {
     //   description: 'תיאור נכס'
     // });
     return this.http.get<RealEstateFullAd>(`${this.realEstateApiUrl}/${id}`);
+  }
+  searchAds(filters: SearchFilters) {
+    const params = new HttpParams().appendAll({
+      ...filters
+    });
+    return this.http.get<RealEstateAd[]>(`${this.realEstateApiUrl}/search`, {
+      params
+    });
   }
 }
