@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class RealEstateAdService {
   private http = inject(HttpClient);
-  private realEstateApiUrl = `${environment.restApiUrl}/RealEstate`;
+  private realEstateApiUrl = `${environment.restApiUrl}/RealEstateAd`;
   getAllAds(): Observable<RealEstateAd[]> {
     // return of([
     //   {id: 1, street: 'מצפה', city: 'שוהם', houseNum: 26, price: 2000, imageUrls: [], propertyType: 'דירה', roomCount: 3, floor: 4},

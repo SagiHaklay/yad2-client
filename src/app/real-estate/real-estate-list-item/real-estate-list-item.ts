@@ -20,7 +20,7 @@ export class RealEstateListItem {
   ad = input.required<RealEstateAd>();
   favoriteRemoved = output();
   isLiked = linkedSignal(() => !!this.ad().isFavorite);
-  address = computed(() => `${this.ad().street} ${this.ad().houseNum}`);
+  address = computed(() => `${this.ad().street} ${this.ad().houseNumber}`);
   imageUrl = computed(() => this.ad().imageUrl || environment.defaultImageUrl);
   // locationDetail = computed(() => {
   //   let details = [this.ad().propertyType];

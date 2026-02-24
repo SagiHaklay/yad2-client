@@ -9,7 +9,13 @@ export const realEstateAdResolver: ResolveFn<RealEstateFullAd> = (route, state) 
   const router = inject(Router);
   const adId = route.paramMap.get('id');
   if (adId === null) {
+    console.log('No ID found');
     return of(new RedirectCommand(router.parseUrl('/error')));
   }
-  return adService.getAdById(Number(adId));
+  const id = parseInt(adId);
+  if (isNaN(id)) {
+    console.log('Invalid ID');
+    return of(new RedirectCommand(router.parseUrl('/error')));
+  }
+  return adService.getAdById(id);
 };

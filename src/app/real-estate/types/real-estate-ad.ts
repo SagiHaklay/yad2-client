@@ -3,7 +3,7 @@ import { RealEstatePropertyType } from "./real-estate-property-type";
 export interface RealEstateAd {
     id: number,
     street: string,
-    houseNum: number,
+    houseNumber: number,
     city: string,
     price?: number,
     isFavorite?: boolean,
