@@ -11,7 +11,7 @@ export class RoomCountSelect {
   readonly maxValue = this.options[this.options.length-1];
   firstSelection = signal<number | null>(null);
   secondSelection = signal<number | null>(null);
-  select = output<number[]>();
+  selectRange = output<number[]>();
   optionPartitions = computed(() => {
     if (this.firstSelection() === null) {
       return [this.options];
@@ -28,17 +28,17 @@ export class RoomCountSelect {
     if (this.firstSelection() === value || this.secondSelection() === value) {
       this.firstSelection.set(null);
       this.secondSelection.set(null);
-      this.select.emit([]);
+      this.selectRange.emit([]);
     } else if (this.firstSelection() === null || this.secondSelection() !== null) {
       this.firstSelection.set(value);
       this.secondSelection.set(null);
       
-      this.select.emit([value]);
+      this.selectRange.emit([value]);
     } else {
       this.secondSelection.set(value);
       const first = this.firstSelection() as number;
       const range = first < value? [first, value] : [value, first];
-      this.select.emit(range);
+      this.selectRange.emit(range);
     } 
   }
 }

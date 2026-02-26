@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, output, signal } from '@angular/core';
 import { RealEstatePropertyType } from '../../types/real-estate-property-type';
 import { PropertyTypePipe } from '../../property-type-pipe';
 
@@ -42,6 +42,8 @@ export class PropertyTypeFilter {
   othersFilter = signal<Set<RealEstatePropertyType>>(new Set());
   isAllApartments = computed(() => this.apartmentsFilter().size === this.apartmentTypes.length);
   isAllHouses = computed(() => this.housesFilter().size === this.houseTypes.length);
+  allFilters = computed(() => [...this.apartmentsFilter(), ...this.housesFilter(), ...this.othersFilter()]);
+  selectFilter = output<RealEstatePropertyType[]>();
   private toggleType(type: RealEstatePropertyType, filterSet: Set<RealEstatePropertyType>) {
     if (filterSet.has(type)) {
       filterSet.delete(type);
@@ -52,12 +54,15 @@ export class PropertyTypeFilter {
   }
   toggleApartmentType(type: RealEstatePropertyType) {
     this.apartmentsFilter.update(filterSet => this.toggleType(type, filterSet));
+    this.selectFilter.emit(this.allFilters());
   }
   toggleHouseType(type: RealEstatePropertyType) {
     this.housesFilter.update(filterSet => this.toggleType(type, filterSet));
+    this.selectFilter.emit(this.allFilters());
   }
   toggleOtherType(type: RealEstatePropertyType) {
     this.othersFilter.update(filterSet => this.toggleType(type, filterSet));
+    this.selectFilter.emit(this.allFilters());
   }
   toggleAllApartments() {
     if (this.isAllApartments()) {
@@ -65,6 +70,7 @@ export class PropertyTypeFilter {
     } else {
       this.apartmentsFilter.set(new Set(this.apartmentTypes));
     }
+    this.selectFilter.emit(this.allFilters());
   }
   toggleAllHouses() {
     if (this.isAllHouses()) {
@@ -72,5 +78,6 @@ export class PropertyTypeFilter {
     } else {
       this.housesFilter.set(new Set(this.houseTypes));
     }
+    this.selectFilter.emit(this.allFilters());
   }
 }

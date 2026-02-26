@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject, input, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-range-slider',
@@ -23,6 +23,7 @@ export class RangeSlider {
     minText: [''],
     maxText: ['']
   });
+  rangeForm = input.required<FormGroup>();
   rangeSize = computed(() => this.maxValue() - this.minValue());
   constructor() {
     effect(() => {
@@ -31,10 +32,10 @@ export class RangeSlider {
     });
   }
   get rangeMin() {
-    return this.rangeControls.get('min');
+    return this.rangeForm().get('min');
   }
   get rangeMax() {
-    return this.rangeControls.get('max');
+    return this.rangeForm().get('max');
   }
   get minText() {
     return this.rangeControls.get('minText');

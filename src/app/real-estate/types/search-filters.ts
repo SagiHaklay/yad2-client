@@ -22,5 +22,7 @@ export interface SearchFilters {
     minBuiltArea?: number,
     maxBuiltArea?: number,
     entryDate?: string,
-    freeSearchQuery?: string
+    freeSearchQuery?: string,
+    parkingIncluded?: boolean,
+    balconyIncluded?: boolean
 }

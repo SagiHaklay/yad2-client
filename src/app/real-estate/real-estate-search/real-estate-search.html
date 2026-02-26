@@ -60,6 +60,7 @@
                         [minNumberValue]="0"
                         [maxNumberValue]="20000"
                         [step]="1000"
+                        [rangeForm]="priceRange"
                     ></app-range-slider>
                 </div>
             }
@@ -105,7 +106,7 @@
                 </button>
             </div>
             <div class="modal-content">
-                <app-additional-filters></app-additional-filters>
+                <app-additional-filters [filterFormGroup]="searchForm"></app-additional-filters>
             </div>
             <div class="modal-footer">
                 <button class="reset-btn" type="reset">

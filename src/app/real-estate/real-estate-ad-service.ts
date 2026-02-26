@@ -5,6 +5,7 @@ import { RealEstateFullAd } from './types/real-estate-full-ad';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { SearchFilters } from './types/search-filters';
+import { Params } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,11 @@ export class RealEstateAdService {
     });
     return this.http.get<RealEstateAd[]>(`${this.realEstateApiUrl}/search`, {
       params
+    });
+  }
+  searchAdsByQueryParams(queryParams: Params) {
+    return this.http.get<RealEstateAd[]>(`${this.realEstateApiUrl}/search`, {
+      params: new HttpParams().appendAll(queryParams)
     });
   }
 }
