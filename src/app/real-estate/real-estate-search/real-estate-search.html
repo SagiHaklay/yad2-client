@@ -76,7 +76,11 @@
             </button>
             @if (false) {
                 <div class="form-card">
-                    <app-room-count-select></app-room-count-select>
+                    <app-room-count-select 
+                    [initialMin]="filters().minRooms || null" 
+                    [initialMax]="filters().maxRooms || null"
+                    (selectRange)="selectRoomRange($event)"
+                    ></app-room-count-select>
                 </div>
             }
         </div>
@@ -176,6 +180,7 @@
                     [minNumberValue]="0"
                     [maxNumberValue]="20000"
                     [step]="1000"
+                    [rangeForm]="priceRange"
                 ></app-range-slider>
             </div>
             <div class="form-section">
@@ -184,7 +189,7 @@
                 </strong>
                 <app-room-count-select></app-room-count-select>
             </div>
-            <app-additional-filters></app-additional-filters>
+            <app-additional-filters [filterFormGroup]="searchForm"></app-additional-filters>
         </div>
         <div class="form-footer">
             <button class="search-btn" type="submit">

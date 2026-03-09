@@ -1,4 +1,4 @@
-import { Component, computed, output, signal } from '@angular/core';
+import { Component, computed, input, linkedSignal, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-room-count-select',
@@ -9,8 +9,10 @@ import { Component, computed, output, signal } from '@angular/core';
 export class RoomCountSelect {
   readonly options = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6];
   readonly maxValue = this.options[this.options.length-1];
-  firstSelection = signal<number | null>(null);
-  secondSelection = signal<number | null>(null);
+  initialMin = input<number | null>(null);
+  initialMax = input<number | null>(null);
+  firstSelection = linkedSignal<number | null>(() => this.initialMin());
+  secondSelection = linkedSignal<number | null>(() => this.initialMax());
   selectRange = output<number[]>();
   optionPartitions = computed(() => {
     if (this.firstSelection() === null) {
